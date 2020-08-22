@@ -1,0 +1,55 @@
+<!DocType html>
+<html language="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=width-device initial-scale=1 minimum-scale=1 maximum-scale=1 user-scalable=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>secondpage</title>
+    </head>
+    <body  onload="start()">
+        <!-- 定时器 -->
+        <!-- 定时器制作计时器
+            <button onclick="start()">显示时间</button>
+        <input type="text" id="txt">
+        显示过去的时间
+        <script>
+            function start(){
+                var a = setTimeout(() => {
+                    document.getElementById("txt").value="2秒";
+                }, 2000);
+                var a = setTimeout(() => {
+                    document.getElementById("txt").value="4秒";
+                }, 4000);
+            }
+        </script> -->
+
+        <!-- 定时器制作实时钟表 -->
+        <!-- document的ready事件通常会比window的onload事件先发生，为什么呢？
+        因为document的ready是在浏览器加载解析并构建完doc文档模型时发生的，而window的onload是整个文档的内容加载完成时才会发生。 -->
+        <!-- <div id="txt"></div>
+        <script>
+            function start() 
+            {
+            var today = new Date();
+            var h = today.getHours();
+            var m = today.getMinutes();
+            var s = today.getSeconds();
+            m = checkTime(m);
+            s = checkTime(s);
+            document.getElementById("txt").innerHTML = h + ":" + m + ":" + s;
+            var t = setTimeout("start()", 500);
+            }
+            
+            
+            function checkTime(i){
+                if(i<10)
+                i = "0" + i;
+                return i;
+            } -->
+
+
+            
+        </script>
+    </body>
+    
+</html>

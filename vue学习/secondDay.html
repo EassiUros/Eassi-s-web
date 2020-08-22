@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	    <meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>bb</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+        <link rel="stylesheet" href="secondDay.css" type="text/css">
+    </head>
+    <body>
+        <div id='app'>
+            <input @keydown.enter="addTask" v-model="task.content" type="text" class="edit" placeholder="编写任务">
+            <p v-if="list.length === 0" class="empty">暂无任务</p>
+            <div class="list">
+                <div v-for="(item,index) in list" class="unit">
+                    <input @click="change(index)" type="checkbox" :checked="item.finished">
+                    <span :class="{finish:item.finished}">{{item.content}}</span>
+                    <button @click="remove(index)" class="del">删除</button>
+                </div>
+            </div>
+           <!-- <p :class="{'active':isActive,       //class绑定，对象语法
+                        'danger':isDanger,
+                        'error':isError
+                    }">这是文字</p> -->
+            <!-- <p :class="{active:isActive,danger:isDanger}">这是文字</p>      //class绑定，对象语法 -->
+            <!-- <p :class='[activeClass,errorClass]'>这是文字</p>        //class绑定，数组语法 -->
+            <!-- <p :style="{color:colorStyle}">这是文字</p>     //样式表绑定 -->
+
+            <!-- <input v-model='msg'>          //work1
+            <button @click='choose'>check</button>
+            <list v-for='(item,index) in msg'>
+                {{index}}.{{item}} <br>
+            </list> -->
+
+            <!-- <input @keydown.enter="addTask" type="text" v-model="task.content" placeholder="编写任务" class="edit">
+            <div class="list">
+                <div class="unit" v-for="(item,index) in list">
+                    <input @click="changeState(index)" :checked="item.finished" type="checkbox">
+                    <span :class="{finish:item.finished}">{{item.content}}</span>
+                    <button @click="removeTask(index)" class="del">删除</button>
+                </div>
+            </div> -->
+                
+        </div>
+        
+    </body>
+    <script>
+        const vm = new Vue({
+            el: "#app",
+            data:{
+                // isActive: true,      //class绑定，对象语法
+                // isDanger: true,
+                // isError: false
+
+                // activeClass: 'active',
+                // errorClass: 'error',
+                // colorStyle: 'red'
+                // msg:[]       //work1
+                // task:{
+                // content:'',     //内容为空
+                // finished: false,        //未完成
+                // deleted: false      //未删除
+                // },
+                //任务列表
+                // list:[],
+                task:{
+                    content:"",
+                    finished:false,
+                    deleted: false,
+                },
+                //任务列表
+                list:[],
+                
+            },
+            // methods:{        //work1
+            //     choose(){
+
+            //     }
+            // }
+            methods:{
+                //将键入的信息放入list中
+                // addTask:function(){
+                //     this.list.push(this.task);
+                //     this.task = {
+                //         content:"",
+                //         finished:false,
+                //         deleted:false,
+                //     }
+                // },
+                // //点击修改任务状态
+                // changeState(index){
+                //     let curState = this.list[index].finished;
+                //     this.list[index].finished = !curState;
+                // },
+                // //删除任务
+                remove(index){
+                    this.list.splice(index,1);
+                },
+
+                //添加任务
+                addTask(){
+                    this.list.push(this.task);
+                    this.task = {
+                        content: "",
+                        finished: false,
+                        deleted: false
+                    }
+                },
+                change(index){
+                    let state = this.list[index].finished;
+                    this.list[index].finished = !state;
+                },
+                // delete(index){
+                //     this.list.splice(index,1); 
+                // }
+            }
+            
+        });
+    </script>
+</html>

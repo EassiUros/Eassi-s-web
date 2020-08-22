@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <style type="text/css">
+            html,body { height: 100%;margin: 0; padding: 0;}
+            #map { height: 100%; }
+        </style>
+        <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false"></script>     
+
+    </head>
+    <body>
+        <div id="map"></div>
+        <script type="text/javascript">
+            var map ;
+            function initMap(){
+                map = new google.maps.Map(document.getElementById('map'),{
+                    center: {lat: -34.397, lng: 150.644},
+                    zoom: 8
+
+                });
+            }
+            initMap();
+
+        </script>
+
+    </body>
+</html>
+--------------------- 
+作者：向着光芒的女孩之littleAnn 
+来源：CSDN 
+原文：https://blog.csdn.net/ann295258232/article/details/54408431 
+版权声明：本文为博主原创文章，转载请附上博文链接！

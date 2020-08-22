@@ -1,0 +1,58 @@
+<html>
+
+<head>
+    <title>网页设计基础</title>
+    <style>
+        #pp {
+                color: red;
+                /* #id选择器 */
+            }
+
+            
+            
+            .ww {
+                background: green;
+            }
+        </style>
+</head>
+
+<body>
+
+    <!-- script可以写在文档任意位置，可以写在<head>中，也可写在<body>中
+            但是浏览器是按顺序从上向下进行解析，所以若脚本写在末尾，
+            而操作又是需要在文档加载时就进行的，则不会运行该脚本 
+        -->
+
+    <script>    //脚本标签
+        var i = 1;  //var 全局变量（生存期直到程序结束）   let 局部变量（生存期直到代码段结束）
+        while (i <= 5) {
+            document.write("<h", i, ">这是标题文字<h", i, ">");
+            //h1 h2 h3 h4 h5
+            i++;
+        }
+    </script>
+
+    <p id="pp" class="ww" style="cursor:pointer">这是一个段落</p>
+    <p id="pp" class="ww" style="cursor:pointer">这是一个段落</p>
+
+    <script>
+        document.getElementById("pp").onclick = function () { alert('hahaha'); }
+
+    </script>
+    <!-- 通过script操作元素，给id为pp的标签加上单击动作 -->
+
+
+    <div align="center">
+        <img src="1.jpg" width="700px" height="400px">
+        <br>
+        <input type="button" name="fullscreen" value="全屏" onclick="window.open(document.location,'big','fullscreen=yes')">
+        <input type="button" name="close" value="还原" onclick="window.close()">
+    </div>
+    <!-- window对象属于BOM，onclick方法表示鼠标单击时，打开一个新窗口，
+            网址为当前文档或网页地址，全屏显示 -->
+
+
+
+</body>
+
+</html>

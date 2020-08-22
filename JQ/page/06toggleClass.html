@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>菜鸟教程(runoob.com)</title>
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+</script>
+<script>
+    // toggleClass用于添加和删除类
+    // 参数有classname，function(index,currentclass)和switch
+    // function中index为返回集合中元素的index位置，currentclass返回被选元素当前类名
+    // switch用于控制添加（true）和删除（false),默认是无加有减
+$(document).ready(function(){
+	$("#add").click(function(){
+		$("ul li").toggleClass(function(n) {
+			if(n == 1){
+				return "main";
+			}
+		},true);
+	});
+	$("#remove").click(function(){
+		$("p").toggleClass("main",false);
+	});
+});
+</script>
+<style>
+.main{
+	font-size:120%;
+	color:red;
+}
+</style>
+</head>
+<body>
+<ul>
+	<li>段落一</li>
+	<li>段落二</li>
+</ul>
+<p>这是一个段落。</p>
+<p class="main">这是另一个段落。</p>
+<button id="add">添加"main"类</button>
+<button id="remove">移除"main"类</button>
+
+</body>
+</html>

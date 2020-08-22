@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap 实例</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <a class="btn btn-primary" data-toggle="collapse" href="#mycollapse" role="collapse">click</a>
+        <div class="collapse" id="mycollapse">
+            <div class="well">It's a nice day!</div>
+        </div>
+
+        <!-- 手风琴效果 -->
+        <div class="panel-group" id="accordin">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <!-- data-parent指定父元素显示，呈现手风琴效果，只显示一个面板 -->
+                        <a href="#panelCollapseOne" class="text-muted" data-toggle="collapse" data-parent="#accordin">Item one</a>
+                    </h4>
+                </div>
+                <div class="panel-collapse collapse in" id="panelCollapseOne">
+                    <div class="panel-body">
+                        It's a nice day!
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a href="#panelCollapseTwo" class="text-muted" data-toggle="collapse" data-parent="#accordin">Item one</a>
+                    </h4>
+                </div>
+                <div class="panel-collapse collapse" id="panelCollapseTwo">
+                    <div class="panel-body">
+                        It's a nice day!
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a href="#panelCollapseThree" class="text-muted" data-toggle="collapse" data-parent="#accordin">Item one</a>
+                    </h4>
+                </div>
+                <div class="panel-collapse collapse" id="panelCollapseThree">
+                    <div class="panel-body" >
+                        It's a nice day!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+<script>
+    $(function() {
+        // $("#panelCollapseOne").collapse("hide");
+        // $("#panelCollapseTwo").collapse({
+        //     toggle:false
+        // });
+        $("#panelCollapseThree").on("show.bs.collapse", function() {
+            alert("sunny day");
+        })
+    });
+
+</script>

@@ -1,0 +1,141 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<style type="text/css">
+		body, html{width: 100%;height: 100%;overflow: hidden;margin:0;font-family:"微软雅黑";}
+		.container {
+			width: 100%;
+			height: 700px;
+			background-color: #fffffa;
+		}
+		.left-bar {
+			width: 20%;
+			height: 650px;
+			border: 1px solid #ccc;
+			float: left;
+			margin-right: 20px;
+		}
+        .left-bar .location {
+        width: 100%;
+        height: 33.33%;
+		text-align: center;
+        border: 1px solid #bbb;
+		}
+		.left-bar .dt-img {
+			/* width: 100%; */
+			height: 45%;
+			background-color: #ccc;
+		}
+		.left-bar .dm-addr {
+			height: 20%;
+			background-color: #ddd;
+		}
+		.dm-addr h4 {
+			padding: 0;
+			margin: 0;
+			line-height: 2.5rem;
+		}
+		.left-bar .db-link {
+			height: 35%;
+			background-color: #eee;
+		}
+		.db-link .db-left,.db-right {
+			width: 50%;
+			height: 100%;
+			background-color: #fff;
+			float: left;
+			margin-left: -1px;
+		}
+		.db-link .db-right {
+			border-left: 1px solid #ccc;
+			float: right;
+		}
+		.content {
+			width: 697px;
+			height: 650px;
+			float: left;
+			padding-top: 10px;
+		}
+	</style>
+    <!-- <script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=您的密钥"></script> -->
+	<!-- <script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script> -->
+	<script type="text/javascript" src="http://api.map.baidu.com/getscript?key=&v=1.1&services=true"></script>
+	<title>为多个点注册单击事件</title>
+</head>
+<body>
+	<div class="container">
+		<div class="left-bar">
+			<div class="location" id="addrone">
+				<div class="dt-img"></div>
+				<div class="dm-addr">
+					<h4>天安门</h4>
+				</div>
+				<div class="db-link">
+					<div class="db-left"></div>
+					<div class="db-right"></div>
+				</div>
+			</div>
+			<div class="location" id="addrtwo">
+				<div class="dt-img"></div>
+				<div class="dm-addr">
+					<h4>西单</h4>
+				</div>
+				<div class="db-link">
+					<div class="db-left"></div>
+					<div class="db-right"></div>
+				</div>
+			</div>
+			<div class="location" id="addrthree">
+				<div class="dt-img"></div>
+				<div class="dm-addr">
+					<h4>十九中学</h4>
+				</div>
+				<div class="db-link">
+					<div class="db-left"></div>
+					<div class="db-right"></div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="content">
+			<div style="width:697px;height:550px;border:#ccc solid 1px;" id="dituContent" class="map"></div>
+		</div>
+	</div>
+	
+    
+</body>
+</html>
+<script type="text/javascript">
+	// 百度地图API功能
+	// var map = new BMap.Map("allmap");
+    var map = new BMap.Map("dituContent");//在百度地图容器中创建一个地图
+    var point = new BMap.Point(113.100774,29.386975);//定义一个中心点坐标
+    map.centerAndZoom(point,17);//设定地图的中心点和坐标并将地图显示在地图容器中
+	var json_data = [[116.404,39.915],[116.383752,39.91334],[116.384502,39.932241]];
+	var pointArray = new Array();
+	var index = [];
+	for(var i=0;i<json_data.length;i++){
+		var marker = new BMap.Marker(new BMap.Point(json_data[i][0], json_data[i][1])); // 创建点
+		map.addOverlay(marker);    //增加点
+		pointArray[i] = new BMap.Point(json_data[i][0], json_data[i][1]);
+	}
+	
+		document.getElementById("addrone").onclick = function() {
+			map.panTo(pointArray[0]);
+		}
+		document.getElementById("addrtwo").onclick = function() {
+			console.log("i:" + i);
+			map.panTo(pointArray[1]);
+		}
+		document.getElementById("addrthree").onclick = function() {
+			map.panTo(pointArray[2]);
+		}
+	//让所有点在视野范围内
+	map.setViewport(pointArray);
+	//获取覆盖物位置
+	function attribute(e){
+		// var p = e.target;
+		// alert("marker的位置是" + p.getPosition().lng + "," + p.getPosition().lat);
+	}	
+</script>

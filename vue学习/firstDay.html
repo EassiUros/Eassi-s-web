@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>filmMobile</title>
+</head>
+<body>
+	<div id="app">
+        {{num2}}
+        {{add}}
+        <!-- {{num3|toFloat}}		//过滤器filter -->
+		<button v-on:click='plus'>按我加一</button>
+		 <!-- <a :href="'http://'+link">hello! baidu</a>     //v-bind指令
+            <button :disabled='dis_true'>我是true</button>      
+            <button :disabled='dis_false'>我是false</button>        
+            {{OK?dis_true:dis_false}}       //三元运算
+            {{num+3}}       //二元运算        -->       
+            <!-- <p v-html=name+link></p>      //v-html指令 -->
+            <!-- <p v-text=name+link></p>       //v-text指令
+            <p v-show='show1'>我是true</p>     // v-show指令
+            <p v-show='show2'>我是falseS</p> -->
+            <!-- <p v-if='show1'>我是true</p>       //v-if指令
+            <p v-if='show2'>我是false</p> -->       
+            <!-- <p v-if='if_1'>我是if</p>
+            <p v-else>我是else</p>      //v-if和v-else指令-->
+            <!-- <p v-for='(item,index) in list'>{{index}}.{{item}}</p>         //v-for指令
+            <p v-for='item in list'>{{item}}</p>  -->
+            <!-- <button v-on:click="say('Tom')">点击</button>       //v-on指令事件绑定，传参函数参数需加引号 -->
+            <!-- <input v-model='msg' type='text'>
+            <p>你输入：{{msg}}</p>      //v-model指令将控件与指定关联的数据msg绑定，然后将用户输入的数据绑定到msg上,内容同步更新 -->
+            <!-- <input v-model='msg' type='text'>
+            <p v-once>你输入:{{msg}}</p>        //v-once指令只能接受一次数据，设置初始值后，无法再次修改 -->
+            <!-- <my-article v-for='item in articles' :detail="item"></my-article> -->
+            <!-- <son @connect="say"></son> -->
+	</div>
+	
+</body>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+	<script src="Vue.js"></script>
+	<!-- <script>
+		定义名为 todo-item 的新组件
+		Vue.component('todo-item', {
+ 
+		  template: '<p>这是个待办项组件</p>'
+		})
+ 
+ 
+		var app= new Vue({
+				el:"#app",
+				data:{
+					m:"hello vue.js",
+				},		 
+		});
+
+		Vue.component('my-article',{
+                props:['detail'],
+                template:'<div><div><h1>{{detail.title}}</h1></div><span>{{detail.date}}</span></div>'
+            });
+        Vue.component('son',{
+            template:'<button @click="send">点击</button>',
+            methods:{
+                send(){
+                    this.$emit('connect',this.name);
+                }
+            }
+        })
+        let vm = new Vue({
+            el: '#app',
+            data:{
+                name: '<h1>前端</h1>',
+                link: 'www.baidu.com',
+                // dis_true: true,
+                // dis_false: false,
+                // OK: true,
+                // num: 3,
+                // show1: true,
+                // show2: false,
+                // if_1: false,
+                // list: ['Tom','John','Lisa'],
+                // msg:""
+                // articles:[
+                //     {
+                //     title: '第一届广播体操',
+                //     date: '2019年3月1号'
+                //     },
+                //     {
+                //     title: '第一届广播体操',
+                //     date: '2019年3月1号'
+                //     },
+                //     {
+                //     title: '第一届广播体操',
+                //     date: '2019年3月1号'
+                //     },
+                //     {
+                //     title: '第一届广播体操',
+                //     date: '2019年3月1号'
+                //     },
+                // ]
+            },
+            beforeCreate(){
+                console.log('即将创建');
+                console.log(this.$data);
+                console.log(this.$el);
+            },
+            created(){
+                console.log('创建完毕');
+                console.log(this.$data);
+                console.log(this.$el);
+            },
+            beforeMount(){
+                console.log('即将挂载');
+                console.log(this.$data);
+                console.log(this.$el);
+            },
+            mounted(){
+                console.log('挂载完毕');
+                console.log(this.$el);
+            },
+            beforeUpdate(){
+                console.log('=即将更新渲染');
+                let name = this.$refs.app.innerHTML;
+                console.log('name:'+name);
+            },
+            updated(){
+                console.log('==更新成功==');
+                let name = this.$refs.app.innerHTML;
+                console.log('name:'+name);
+            },
+            beforeDestroy(){
+                console.log('销毁之前');
+            },
+            destroyed(){
+                console.log('销毁成功');
+            },
+            methods:{
+                // say(){
+                //     alert('hello');     //无参函数
+                // }
+                say(link){
+                    alert(link);        //有参函数
+                }
+            }
+            
+        });
+	</script> -->
+</html>

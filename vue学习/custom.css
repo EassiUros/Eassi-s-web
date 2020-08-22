@@ -1,0 +1,30 @@
+
+
+/*制作border三角形
+ p{
+    width: 200px;
+    height: 50px;
+    line-height: 50px;
+    background: red;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+p::before{
+    display: inline-block;
+    border: 5px solid transparent;
+    border-right-color: red;
+    content: "";
+    position: relative;
+    left: -10px;
+} */
+
+/* CSS中radial-gradient函数（圆心位置，渐变大小，渐变颜色）默认形状是椭圆形 */
+.gradient{
+    height: 150px;
+    width: 200px;
+    background: -webkit-radial-gradient(circle, blue,green,yellow,black);
+}

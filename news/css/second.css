@@ -1,0 +1,138 @@
+.banner {
+    background: url(../image/涓流原清.jpg) no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    /* width: 100%; */
+    height: 400px;
+    background-color: #fff;
+    /* height: -webkit-fill-available; */
+    text-align: center;
+}
+
+.mirror {
+    background: rgba(200, 220, 255, 0.4);
+    height: 100%;
+    width: 100%;
+    color: aliceblue;
+    animation: dropdown 1.5s forwards ease;
+    position: relative;
+}
+
+@keyframes dropdown {
+    from {
+        height: 0px
+    }
+    to {
+        height: 400px
+        /* height: 100%; */
+    }
+}
+
+.name {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    opacity: 0;
+    animation: word 1s forwards ease;
+    animation-delay: 1s;
+}
+
+.name h1 {
+    margin: 0;
+    
+}
+
+@keyframes word {
+    0% {opacity: 0;}
+    50% {opacity: .5;}
+    100% {opacity: 1;}
+}
+
+.line {
+    background-color: rgb(36, 174, 184);
+    background-image: linear-gradient(to right,
+        rgba(0,0,0,.9) 25%,
+        rgba(0,0,0,.1) 50%,
+        rgba(0,0,0,.9) 75%);
+    color: white;
+    height: 100%;
+    width: 2%;
+    animation: 4s linear 0s infinite alternate move-eye;   
+    animation-delay: 2s; 
+}
+
+@keyframes move-eye {
+    from { margin-left:-20%;}
+    to { margin-left:120%;}
+}
+
+
+.content {
+    background: #000;
+    margin: 0 auto;
+    color: aliceblue;
+    border-bottom: #999 thin dotted;
+    /* column-gap: 2em;
+    column-rule: thin dotted #999; */
+
+}
+
+#sidebar {
+    margin-top: 100px;
+    border-right: #999 dotted thin;
+    border-bottom: none;
+    padding-bottom: none;
+}
+
+.sidebarimg {
+    margin-bottom: 2em;
+}
+
+#sidebar img {
+    width: 40%;
+    /* height: 20%; */
+    /* float:left; */
+    padding-right: 1em;
+    padding-left: 1em;
+}
+
+/* .sidebar h3 {
+    margin-top: 20px;;
+} */
+
+.role {
+    margin-top: 100px;
+    float: left;
+    text-align: left;
+    padding-left: 1em;;
+    /* border-left: #999 thin dotted; */
+}
+
+/* .movie {
+    float: left;
+} */
+
+.role p {
+    font-size: 1rem;
+} 
+
+ #role-title {
+    font-size: 2rem;
+}
+
+/* .movie{
+    width: 50%;
+    float: left;
+} */
+
+.movie img {
+   max-width: 100%;
+}
+
+/* .saying {
+    margin-top: -20px;
+    float: left;
+    width: 40%;
+    margin-left: 40px;
+} */

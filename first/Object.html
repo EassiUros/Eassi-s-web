@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>object对象</title>
+    </head>
+    <body>
+        <p id="demo">hahah</p>
+        <script>
+            // var car = {
+    //     name: "BYD",
+    //     model: 500,
+    //     weight: "850kg",
+    //     color: "white"
+    // };
+            var car = new Object();
+            car.name = "Fiat";
+            car.model = 200;
+            car.weight = "850kg";
+            car.color = "white";
+            car.name = "BYD";
+            car.color = "red";
+            car.window = 4;
+            alert(car.name + car.model + car.weight + car.color + car.window);
+            document.getElementById("demo").innerHTML = car.name + car.model + car.weight + car.color;
+        </script>
+    </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap 实例</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
+</head>
+<body>
+    <a href="#" class="btn btn-default" title="弹出提示标题" data-placement="bottom">click me</a>
+</body>
+</html>
+<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+<script>
+    // $("a").popover();
+    $("a").popover({
+        html:true,
+        title:"模拟工具提示功能",
+        content:"<img src='../images/11.jpg' style='width:50px'/>",
+        placement:"bottom",
+        trigger:"hover",
+        delay: {show:1000, hide:500}
+    })
+</script>

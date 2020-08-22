@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <p id="pp">say hi</p>
+        <input type="button" value="改变字体颜色" onclick="changecolor()">
+        <input type="button" value="改变字体大小" onclick="changesize()">
+
+        <script>
+            window.alert("这是一个弹出的对话框");
+            document.write("这是write函数写入的内容");
+            document.getElementById("pp").innerHTML = "这是通过HTML标签写入页面的内容";
+            console.log("这是控制台打印的日志");
+            function changecolor() {
+                document.getElementById('pp').style.color = "#ff0000";
+            }
+
+            function changesize() {
+                document.getElementById('pp').style.fontSize = "36px";
+            }
+        </script>
+    </body>
+    
+</html>

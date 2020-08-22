@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #myCanvas {
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <canvas width="900px:" height="600px" id="myCanvas"></canvas>
+</body>
+</html>
+<script>
+    // 绘制画布
+    var myCanvas = document.querySelector("#myCanvas");
+    // 获取2d属性
+    var ctx = myCanvas.getContext("2d");
+    // 定义网格宽度
+    var gridSize = 10;
+    // 获取画布高度
+    var CanvasHeight = ctx.canvas.height;
+    // 计算网格横向线条数量
+    var XTotal = Math.floor(CanvasHeight / gridSize);
+    // 获取画布宽度
+    var CanvasWidth = ctx.canvas.width;
+    // 计算网格纵向线条数量
+    var YTotal = Math.floor(CanvasWidth / gridSize);
+    // 绘制横向线条
+    for(var i = 0; i < XTotal; i++){
+        ctx.beginPath();
+        ctx.moveTo(0,gridSize * i - 0.5);
+        ctx.lineTo(CanvasWidth,gridSize * i - 0.5);
+        ctx.strokeStyle = "#eee";
+        ctx.stroke();
+    }
+    // 绘制纵向线条
+    for(var i = 0; i < YTotal; i++){
+        ctx.beginPath();
+        ctx.moveTo(gridSize * i - 0.5, 0);
+        ctx.lineTo(gridSize * i - 0.5, CanvasHeight);
+        ctx.strokeStyle = "#eee";
+        ctx.stroke();
+    }
+
+    // 绘制斜线网格
+    // var XSize = ctx.canvas.width / 30;
+    // var YSize = ctx.canvas.height / 30;
+    // 从左上向右下
+    // for(var i = 0; i <= 30; i++){
+    //     // 上半部分
+    //     ctx.beginPath();
+    //     ctx.moveTo(XSize * i,0);
+    //     ctx.lineTo(ctx.canvas.width, YSize * (30 - i));
+    //     ctx.strokeStyle = "#eee";
+    //     ctx.stroke();
+    //     // 下半部分
+    //     ctx.beginPath();
+    //     ctx.moveTo(0,YSize * i);
+    //     ctx.lineTo(XSize * (30 - i),ctx.canvas.height);
+    //     ctx.strokeStyle = "#eee";
+    //     ctx.stroke();
+    // }
+    // 从右上向左下
+    // for(var i = 0; i <= 30; i++){
+    //     // 上半部分
+    //     ctx.beginPath();
+    //     ctx.moveTo(XSize * i, 0);
+    //     ctx.lineTo(0,YSize * i);
+    //     ctx.strokeStyle = "#eee";
+    //     ctx.stroke();
+    //     // 下半部分
+    //     ctx.beginPath();
+    //     ctx.moveTo(ctx.canvas.width, YSize * i);
+    //     ctx.lineTo(XSize * i, ctx.canvas.height);
+    //     ctx.strokeStyle = "#eee";
+    //     ctx.stroke();
+    // }
+
+    // 绘制坐标系
+    var space = 2 * gridSize;
+    var arrowSize = gridSize;
+    var X0 = space;
+    var Y0 = CanvasHeight - space;
+
+    // 绘制X轴
+    ctx.beginPath();
+    ctx.moveTo(X0,Y0);    // 确认原点
+    ctx.lineTo(CanvasWidth - space, Y0);
+    ctx.strokeStyle = "#333";
+    ctx.stroke();
+    
+    ctx.lineTo(CanvasWidth - space - arrowSize, Y0 - arrowSize / 2);
+    ctx.lineTo(CanvasWidth - space - arrowSize, Y0 + arrowSize / 2);
+    ctx.lineTo(CanvasWidth - space, Y0);
+    ctx.fill();
+
+    // 绘制Y轴
+    ctx.beginPath();
+    ctx.moveTo(X0,Y0);    // 确认原点
+    ctx.lineTo(X0, space);
+    ctx.strokeStyle = "#333";
+    ctx.stroke();
+    
+    ctx.lineTo(X0 - arrowSize / 2, space + arrowSize);
+    ctx.lineTo(X0 + arrowSize / 2, space + arrowSize);
+    ctx.lineTo(X0, space);
+    ctx.fill();
+</script>

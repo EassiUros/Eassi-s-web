@@ -1,0 +1,32 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <p id="pp"></p>
+        <script>
+            function show() {
+            var time = new Date();
+            var years = time.getFullYear();
+            var months = time.getMonth();
+            var day = time.getDay();
+            var hours = time.getHours();
+            var minutes = time.getMinutes();
+            var seconds = time.getSeconds();
+            var now_time = "";
+            now_time += ((hours>12) ? hours - 12 :hours);
+            now_time += ((minutes>10) ? ":" : ":0") + minutes;
+            now_time += ((seconds>10) ? ":" : ":0") + seconds;
+            now_time += ((hours>12) ? "PM" : "AM");
+            document.getElementById("pp").innerHTML = now_time;
+            }
+            setInterval(() => {
+                show();
+            }, 1000);
+           
+        </script>
+        
+        
+        
+    </body>
+</html>

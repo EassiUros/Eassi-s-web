@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .main {
+            width: 700px;
+            height: 400px;
+            margin: 100px auto;
+            display: flex;
+            /* flex-direction: column; */
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            /* flex-flow: column wrap; */
+            background-color: pink;
+        }
+
+        .main>div {
+            /* width: 200px; */
+            /* height: 100px; */
+            margin: 10px;
+            background-color: yellowgreen;
+            border: 2px solid blueviolet;
+        }
+
+        .main > div:nth-child(1) {
+            flex: 1;
+            align-self: stretch;
+        }
+        .main > div:nth-child(2) {
+            height: 100px;
+            flex: 2;
+            order: -1;
+        }
+        .main > div:nth-child(3) {
+            height: 100px;
+            flex: 1;
+            align-self: flex-end;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        flex： 将对象作为弹性伸缩盒显示
+        inline-flex：将对象作为内联块级弹性伸缩盒显示
+     -->
+    <div class="main">
+        <div></div>
+        <div></div>
+        <div></div>
+        <!-- <div></div>
+        <div></div> -->
+    </div>
+</body>
+</html>

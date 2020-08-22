@@ -1,0 +1,139 @@
+/* .inside {
+    background: #fff;
+} */
+
+
+
+.mele {
+    margin-top: 70px;
+    padding-top: 2em;
+    color: aliceblue;
+}
+
+.mele:after {
+    content: " ";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+@keyframes swing {
+    from {
+        transform: rotate(3deg);
+    }
+    20% {
+        transform: rotate(7deg);
+    }
+    60% {
+        transform: rotate(10deg);
+    }
+    80% {
+        transform: rotate(7deg);
+    }
+    100% {
+        transform: rotate(3deg);
+    }
+}
+
+.Qtitle .above a:nth-child(odd) img {
+    transform: rotate(-3deg);
+    animation:swing 0.1s 5 ease-in;
+}
+
+.Qtitle .above a:nth-child(even) img {
+    transform: rotate(3deg);
+    animation:swing 0.1s 5 0.3s ease-in;
+}
+
+.Qtitle .under a:nth-child(odd) img {
+    transform: rotate(3deg);
+    animation:swing 0.1s 5 0.2s ease-in;
+}
+
+.Qtitle .under a:nth-child(even) img {
+    transform: rotate(-3deg);
+    animation:swing 0.1s 5 0.5s ease-in;
+}
+
+
+.Qcont {
+    margin-top: 70px;
+    padding-bottom: 40px;
+}
+
+.Qcontainer {
+    height: auto;
+    width: 28%;
+    position: relative;
+    perspective: 800;
+    -webkit-perspective: 800;
+    float: left;
+    margin-right: 2%;
+    margin-left:2.5%;
+    margin-bottom: 40px;
+    /* margin-top: 70px; */
+}
+
+/* .h-lg-3 {
+    height: 500px;
+    overflow: hidden;
+} */
+
+.film {
+    width: 100%;
+    height: auto;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transition: 1s;
+    transition: 1s;
+}
+
+.film img {
+    width: 100%;
+    height: 500px;
+}
+
+.Qcontainer:hover .film {
+    transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+
+}
+
+.face {
+    position: absolute;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.back {
+    width: 100%;
+    height: 500px;
+    /* height: 127; */
+    transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    background: #fafafa;
+    /* background: -webkit-linear-gradient(top,rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); */
+    padding: 15%;
+}
+
+@keyframes warning {
+    from {
+        text-shadow: 0px 0px 4px #000000;
+    }
+
+    50% {
+        text-shadow: 0 0 40px #000000;
+    }
+
+    100% {
+        text-shadow: 0 0 4px #000000;
+    }
+}
+
+.back h5 {
+    font-size: 4em;
+    color: #f2050b;
+    text-align: center;
+    animation: warning 1.5s infinite ease-in;
+}

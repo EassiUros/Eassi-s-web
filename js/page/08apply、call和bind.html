@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // 每个函数都包含两个非继承来的方法apply()和call()
+    // 用于在特定的作用域中调用函数
+    // 实际上等于设置函数体内的this对象的值
+    //apply()方法接收两个参数：一是在其中运行函数的作用域，二是参数数组（可以是Array的实例也可以是arguments对象）
+    // function sum(num1,num2) {
+    //     return num1 + num2;
+    // }
+    // function callSum1(num1,num2) {
+    //     return sum.apply(this,arguments);   //将callSum1的arguments参数传入sum函数
+    // }
+    // function callSum2(num1,num2) {
+    //     return sum.apply(this,[num1,num2]);     // 将callSum2的参数以数组的形式传入sum函数
+    // }
+    // alert(callSum1(10,10));
+    // alert(callSum2(20,20));
+
+    //call()方法和apply()方法相同，区别仅在于接收参数的不同
+    // 对于call方法而言，第一个参数是this不变，变化的是其余参数都直接传递给函数
+    // function sum(num1,num2) {
+    //     return num1 + num2;
+    // }
+    // function callSum(num1,num2) {
+    //     return sum.call(this,num1,num2);
+    // }
+    // alert(callSum(10,10));
+
+    // apply和call真正强大的地方是能够扩充函数赖以运行的作用域
+    // 对象不需要与方法有任何耦合
+    // window.color = "red";
+    // var o = {
+    //     color : "blue"
+    // };
+    // function sayColor() {
+    //     alert(this.color);
+    // }
+    // sayColor();
+    // sayColor.call(this);
+    // sayColor.call(window);
+    // sayColor.call(o);
+
+    //bind方法会创建一个函数的实例
+    // 其this值会被绑定到传给bind函数的值
+    window.color = "red";
+    var o = {
+        color: "blue"
+    };
+    function sayColor() {
+        alert("color：" + this.color);
+    }
+    // var objectSayColor = sayColor.bind(o);
+    // objectSayColor();
+    sayColor.bind(o)();
+</script>

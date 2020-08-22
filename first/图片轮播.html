@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>图片轮播</title>
+        <script>
+            var i = 1;
+            function show() {
+                
+                // if(i == 1){
+                //     document.getElementById("pp").src = "2.jpg";
+                //     i++;
+                // }
+                // else{
+                    
+                //     document.getElementById("pp").src = "1.jpg";
+                //     i = 1;
+
+                // }
+                if(i < 5){
+                    document.getElementById("pp").src = i + ".jpg"; 
+                    i++;
+                }else{
+                    document.getElementById("pp").src = i + ".jpg";
+                    i = 1;
+                }
+        
+                
+
+            }
+            setInterval(show,1000);
+                
+            </script>
+    </head>
+    <body>
+        <img id="pp" src="1.jpg">
+        
+    </body>
+</html>

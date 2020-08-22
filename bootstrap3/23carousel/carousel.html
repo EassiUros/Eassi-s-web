@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>轮播</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
+  <style>
+      #myCarousel {
+          width: 400px;
+      }
+  </style>
+</head>
+<body>
+    <div class="container" id="myCarousel">
+        <!-- 直接使用data-interval设置循环时间需要鼠标先点击才能进行动画 -->
+        <div class="carousel slide" id="carousel-example" data-ride="carousel">
+            <!-- indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-example" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example" data-slide-to="1"></li>
+                <li data-target="#carousel-example" data-slide-to="2"></li>
+            </ol>
+
+            <!-- wrapper for sliders -->
+            <div class="carousel-inner" role="img-box">
+                <div class="item active">
+                    <img src="../images/scenary (1).jpg" alt="风景">
+                    <div class="carousel-caption">
+                        <h3>NEWS</h3>
+                        <p>新品上市</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="../images/scenary (2).jpg" alt="风景">
+                    <div class="carousel-caption">
+                        <h3>NEWS</h3>
+                        <p>新品上市</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="../images/scenary (3).jpg" alt="风景">
+                    <div class="carousel-caption">
+                        <h3>NEWS</h3>
+                        <p>新品上市</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- controls -->
+            <a href="#carousel-example" class="left carousel-control" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">previous</span>
+            </a>
+            <a href="#carousel-example" class="right carousel-control" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">next</span>
+            </a>
+        </div>
+    </div>
+    
+</body>
+</html>
+<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+<script>
+    $(".carousel").carousel({
+        interval:2000
+    })
+</script>

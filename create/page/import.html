@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
+<script async>
+    function handleLoad(e) {
+        console.log("Loaded import:" + e.target.href);
+    }
+    function handleError(e) {
+        console.log("Error loading import:" + e.target.href);
+    }
+</script>
+<link rel="import" href="nav.html" onload="handleLoad(event)" onerror="handleError(event)">
+</head>
+<body>
+    
+</body>
+<script>
+    var link = document.querySelector("link[rel='import']");
+    var content = link.import;
+    // 从nav.html的文档中获取DOM
+    var el = content.querySelector(".nav");
+    document.body.appendChild(el.cloneNode(true));
+</script>
+</html>

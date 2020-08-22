@@ -1,0 +1,255 @@
+<html>
+    <head>
+        <title>计算器</title>
+        <style>
+            #com {
+                /* background-image: url(1.jpg); */
+                font-size: 28px;
+                width: 400px;
+                height: 500px;
+                margin: 100px auto;
+                border: 1px solid #334455;
+            }
+
+            #com div { 
+                float: left;
+                width: 100px;
+                height: 100px;
+                background: rgba(255，255，255，1);
+                /* background: linear-gradient(to bottom right,rgba(255,255,2255,1),rgb(247, 196, 165,1)); */
+                text-align: center;
+                line-height: 100px;
+                box-sizing: border-box;
+                border: 1px solid #334455;
+                cursor: pointer;
+            }
+
+            #com div:hover {
+                background-color: #ccddee;
+            }
+
+            #com #show {
+                width: 300px;
+                text-align: right;
+                font-size: 36px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="com"> <div></div>
+            <div id="show"></div>
+            <div id="clear">C</div>
+
+            <div id="btn-1" onclick="getvalue()">1</div>
+            <div id="btn-2">2</div>
+            <div id="btn-3">3</div>
+            <div id="equal">=</div>
+
+            <div id="btn-4">4</div>
+            <div id="btn-5">5</div>
+            <div id="btn-6">6</div>
+            <div id="sum">+</div>
+
+            <div id="btn-7">7</div>
+            <div id="btn-8">8</div>
+            <div id="btn-9">9</div>
+            <div id="sub">-</div>
+            
+            <div id="point">.</div>
+            <div id="btn-0">0</div>
+            <div id="divide">/</div>
+            <div id="multiply">*</div>
+            
+        </div>
+        
+    </body>
+    <script>
+        var s1,s2,s3;
+        s1 = '';
+        s2 = '';
+        s3 = '';
+
+        function sum() {
+            return s1 + s2;
+        }
+
+        function sub() {
+            return s1-s2;
+        }
+
+        function div() {
+            return s1 / s2;
+        }
+
+        function mul() {
+            return s1 * s2;
+        }
+
+        var show = document.getElementById('show');
+        document.getElementById('sum').onclick = function() {
+            s3 = '+';
+            show.innerText += s3;
+        }
+
+        document.getElementById('sub').onclick = function() {
+            s3 = '-';
+            show.innerText += s3;
+        }
+
+        document.getElementById('multiply').onclick = function() {
+            s3 = '*';
+            show.innerText += s3;
+        }
+
+        document.getElementById('divide').onclick = function() {
+            s3 = '/';
+            show.innerText += s3;
+        }
+
+        document.getElementById('point').onclick = function() {
+            if(s3 == ''){
+                if(s1 != ''){
+                    s1 += '.';
+                }
+                
+            }
+            else{
+                if(s2 != ''){
+                    s2 += '.';
+                }
+                
+            }
+            show.innerText += '.';
+        }
+
+        document.getElementById('equal').onclick = function() {
+            s1 = parseFloat(s1);
+            s2 = parseFloat(s2);
+            let result = '';
+            if(s3 == '+'){
+                result = sum();
+            }
+            if(s3 == '-'){
+                result = sub();
+            }
+            if(s3 == '*'){
+                result = mul();
+            }
+            if(s3 == '/'){
+                result = div();
+            }
+            show.innerText = result;
+            s1 = '';
+            s2 = '';
+            s3 = '';
+        }
+
+        document.getElementById('clear').onclick = function() {
+            show.innerText = '';
+        }
+            
+        
+
+        document.getElementById('btn-1').onclick = function() {
+            if(s3 == ''){
+                s1 += '1';
+                show.innerText += '1';
+            }else{
+                s2 += '1';
+                show.innerText += '1';
+            }
+        }
+
+        document.getElementById('btn-2').onclick = function() {
+            if(s3 == ''){
+                s1 += '2';
+                show.innerText += '2';
+            }else{
+                s2 += '2';
+                show.innerText += '2';
+            }
+        }
+
+        document.getElementById('btn-3').onclick = function() {
+            if(s3 == ''){
+                s1 += '3';
+                show.innerText += '3';
+            }else{
+                s2 += '3';
+                show.innerText += '3';
+            }
+        }
+
+        document.getElementById('btn-4').onclick = function() {
+            if(s3 == ''){
+                s1 += '4';
+                show.innerText += '4';
+            }else{
+                s2 += '4';
+                show.innerText += '4';
+            }
+        }
+
+        document.getElementById('btn-5').onclick = function() {
+            if(s3 == ''){
+                s1 += '5';
+                show.innerText += '5';
+            }else{
+                s2 += '5';
+                show.innerText += '5';
+            }
+        }
+
+        document.getElementById('btn-6').onclick = function() {
+            if(s3 == ''){
+                s1 += '6';
+                show.innerText += '6';
+            }else{
+                s2 += '6';
+                show.innerText += '6';
+            }
+        }
+
+        document.getElementById('btn-7').onclick = function() {
+            if(s3 == ''){
+                s1 += '7';
+                show.innerText += '7';
+            }else{
+                s2 += '7';
+                show.innerText += '7';
+            }
+        }
+
+        document.getElementById('btn-8').onclick = function() {
+            if(s3 == ''){
+                s1 += '8';
+                show.innerText += '8';
+            }else{
+                s2 += '8';
+                show.innerText += '8';
+            }
+        }
+
+        document.getElementById('btn-9').onclick = function() {
+            if(s3 == ''){
+                s1 += '9';
+                show.innerText += '9';
+            }else{
+                s2 += '9';
+                show.innerText += '9';
+            }
+        }
+
+        document.getElementById('btn-0').onclick = function() {
+            if(s3 == ''){
+                s1 += '0';
+                show.innerText += '0';
+            }else{
+                s2 += '0';
+                show.innerText += '0';
+            }
+        }
+
+
+    </script>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>thirdDay</title>
+    <script src="https://unpkg.com/vue@2.3.3/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input @keyup="calculate" type="text" v-model="augend">
+        <span>+</span>
+        <input @keyup="calculate" type="text" v-model="addend">
+        <span>=</span>
+        <input type="text" :value="sum">
+        <br>
+        <br>
+        <button @click="reset">清空数据</button>
+    </div>
+
+    <script>
+        const app = new Vue({
+            el: "#app",
+            data:{
+                augend: "",
+                addend: "",
+                sum: ""
+            },
+            methods:{
+                calculate(){
+                    this.sum = Number(this.augend) + Number(this.addend);
+                },
+                reset(){
+                    // this.sum = this.augend = this.addend = "";
+                    this.$emit("reset");
+                }
+            }
+        });
+    </script>
+
+    <!-- <input id="input" value="default" type="text" />       //keydown、keypress、keyup事件分析
+    <script>
+    var input = document.getElementById('input');
+    input.onkeydown = function() {
+        //return false;
+        console.log('onkeydown ' + this.value);
+    }
+    input.onkeypress = function() {
+        //return false;
+        console.log('onkeypress ' + this.value);
+    }
+    input.onkeyup = function() {
+        //return false;
+        console.log('onkeyup ' + this.value);
+    }
+    </script>   -->
+</body>

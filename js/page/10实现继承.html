@@ -1,0 +1,55 @@
+<html>
+</html>
+<script>
+    //继承实现的三种方法：对象冒充、原型链和混合模式
+    // function Fruit(price,home) {
+    //     this.price = price;
+    //     this.home = home;
+    //     this.showHome = function() {
+    //         alert(this.home);
+    //     }
+    // }
+    
+    // 对象冒充：利用call和apply实现继承
+    // function Apple(color,weight) {
+    //     Fruit.call(this,"13","china");
+    //     this.color = color;
+    //     this.weight = weight;
+    //     this.showColor = function() {
+    //         alert(this.color);
+    //     }
+    // }
+
+    //原型链
+    // function Apple() {}
+    // Apple.prototype = new Fruit(14,"china");
+    // Apple.prototype.color = "red";
+    // Apple.prototype.weight = 25;
+    // Apple.prototype.showColor = function() {
+    //     alert(this.color);
+    // }
+
+    // 混合模式
+    // 用对象冒充继承构造函数的属性，用原型链继承实现对象的方法
+    function Fruit(price,home) {
+        this.price = price;
+        this.home = home;
+    }
+    Fruit.prototype.showHome = function() {
+        alert(this.home);
+    }
+    function Apple(color,weight) {
+        Fruit.call(this,13,"china");
+        this.color = color;
+        this.weight = weight;
+    }
+    Apple.prototype = new Fruit();
+    Apple.prototype.showColor = function() {
+        alert(this.color);
+    }
+    var apple1 = new Apple("red",15);
+    var apple2 = new Fruit(23,"USA");
+    apple1.showHome();
+    apple1.showColor();
+    apple2.showHome();
+</script>

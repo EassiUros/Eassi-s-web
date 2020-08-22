@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        .wrap {
+            width: 330px;
+            height: 30px;
+            background-color: yellowgreen;
+            margin: 100px auto 0;
+            padding-left: 10px;
+            text-align: center;
+        }
+        .wrap a {
+            text-decoration: none;
+            color: antiquewhite;
+            display: block;
+            width: 100px;
+            line-height: 30px;
+        }
+        .wrap ul li {
+            float: left;
+            height: 30px;
+            /* display: inline-block; */
+            margin-right: 10px;
+            position: relative;
+        }
+        .wrap li ul {
+            position: absolute;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <ul>
+            <li>
+                <a href="">首页</a>
+                <ul>
+                    <li>JAVA</li>
+                    <li>数据挖掘</li>
+                    <li>网络安全</li>
+                </ul>
+            </li>
+            <li>
+                <a href="">首页</a>
+                <ul>
+                    <li>JAVA</li>
+                    <li>数据挖掘</li>
+                    <li>网络安全</li>
+                </ul>
+            </li>
+            <li>
+                <a href="">首页</a>
+                <ul>
+                    <li>JAVA</li>
+                    <li>数据挖掘</li>
+                    <li>网络安全</li>
+                </ul>
+            </li></ul></div></body></html>
+        </ul>
+    </div>
+</body>
+</html>
+<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+    //第一种方法
+    // $(function(){
+    //     $(".wrap li").mouseenter(function(){
+    //         $(this).children("ul").show();
+    //     });
+    //     $(".wrap li").mouseleave(function(){
+    //         $(this).children("ul").hide();
+    //     })
+    // });
+
+    //第二种方法
+    // $(function(){
+    //     $(".wrap li").hover(function(){
+    //         $(this).children("ul").show();
+    //     }, function(){
+    //         $(this).children("ul").hide();
+    //     });
+    // })
+
+    //第三种方法
+    // $(function(){
+    //     $(".wrap li").hover(function(){
+    //         var $this = $(this).children("ul");
+    //         var isShow = $this.css("display");
+    //         if(isShow == "block")
+    //         {
+    //             $this.hide();
+    //         }
+    //         else
+    //         {
+    //             $this.show();
+    //         }
+    //     });
+    // })
+
+    // 第四种方法
+    $(function(){
+        $(".wrap li").hover(function(){
+            $(this).children("ul").stop(true,false).slideToggle();
+        })
+    })
+</script>

@@ -1,0 +1,164 @@
+body {
+    /* margin: 0;
+    padding: 0; */
+    background-color: #74B2C9;
+}
+.canvas-box {
+    position: relative;
+    margin: auto;
+    margin-top: 8%;
+    margin-bottom: 8%;
+    width: 190px;
+    height: 600px;
+    /* background-color: #fff; */
+}
+.canvas-box .head {
+    position: absolute;
+    left: 50px;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    background-color: #F73219;
+    border: 1px solid #F73219;
+    overflow: hidden;
+}
+.canvas-box .head::before {
+    content: '';
+    position: absolute;
+    bottom: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50% 50% 50% 20%;
+    background-color: #fff;
+}
+.canvas-box .head::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    width: 5px;
+    height: 5px;
+    border: 8px solid #000;
+    border-radius: 50%;
+    background-color: #fff;
+}
+.canvas-box .beak {
+    position: absolute;
+    top: 30px;
+    width: 60px;
+    height: 30px;
+    transform: rotate(-10deg);
+    /* background-color: yellowgreen; */
+}
+.canvas-box .beak::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 30px;
+    height: 15px;
+    border-radius: 50% 0% 50% 50%;
+    background-color: orange;
+}
+.canvas-box .beak .beak-top {
+    position: absolute;
+    right: 0;
+    width: 40px;
+    height: 25px;
+    border-radius: 50% 30% 50% 50%;
+    background-color: #F2D207;
+}
+.canvas-box .beak .beak-top::after {
+    content: '';
+    position: absolute;
+    top: 22px;
+    left: 5px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    transform: rotate(22deg);
+    box-shadow: -15px -15px 0 #F2D207;
+}
+.canvas-box .body {
+    position: absolute;
+    top: 55px;
+    left: 70px;
+    width: 80px;
+    height: 150px;
+    border-radius: 50% 50% 40% 40%;
+    border-left: 2px solid #D12B19;
+    transform: rotate(-25deg);
+    background-color: #F73219;
+}
+.canvas-box .body::after {
+    content: '';
+    position: absolute;
+    left: 25px;
+    width: 60px;
+    height: 130px;
+    border-radius: 50% 30% 50% 10%;
+    transform: rotate(-10deg) skew(0deg,-20deg);
+    background: linear-gradient(to bottom,#F73219, #F73219 50%, #F2D207 55%, #F2D207 70%, #0372C3 80%);
+}
+.canvas-box .tail {
+    position: absolute;
+    top: 130px;
+    right: 20px;
+    width: 40px;
+    height: 150px;
+    transform: rotate(-20deg);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 60%);
+    background: linear-gradient(to right,#0372C3, #0372C3 20%, #F73219 30%, #F73219 45%, #F2D207 55%, #F2D207 70%, #0372C3 80%);
+}
+.canvas-box .leg {
+    position: absolute;
+    width: 8px;
+    height: 35px;
+    background-color: #F2D207;
+}
+.canvas-box .leg::before {
+    content: '';
+    position: absolute;
+    top: -25px;
+    left: -10px;
+    width: 25px;
+    height: 25px;
+    clip-path: polygon(0 0, 100% 0, 80% 100%, 20% 100%);
+    background-color: #F73219;
+}
+.canvas-box .leg::after {
+    content: '';
+    position: absolute;
+    top: 35px;
+    left: -10px;
+    width: 25px;
+    height: 20px;
+    border-radius: 50%;
+    box-shadow: 0 -8px #F2D207;
+}
+.canvas-box .left {
+    top: 200px;
+    left: 90px;
+    transform: rotate(8deg);
+}
+
+.canvas-box .right {
+    top: 210px;
+    left: 105px;
+    transform: rotate(8deg);
+}
+.canvas-box .right::after {
+    left: -10px;
+}
+
+.canvas-box .branch {
+    position: absolute;
+    top: 160px;
+    left: 90px;
+    width: 20px;
+    height: 150px;
+    border-radius: 25% 25% 35% 35%;
+    transform: rotate(-60deg);
+    background-color: #7E4E2D;
+}

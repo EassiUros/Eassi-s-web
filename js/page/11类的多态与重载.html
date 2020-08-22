@@ -1,0 +1,30 @@
+<html>
+
+</html>
+<script>
+    function JsFruit() {
+        this.name = "fruit";
+        this.original = "not known";
+        this.showInfo = function() {
+            alert("this fruit's name is" + this.name + "; this fruit's original is " + this.original + "!");
+        }
+    }
+    function JsApple() {
+        var fruit = new JsFruit();
+        var apple = new JsFruit();
+        apple.name = "apple";
+        fruit.name = apple.name;
+        apple.original = "china";
+        fruit.original = apple.original;
+        apple.color = "red";
+        apple.weight = 300;
+        apple.showInfo = function() {
+            fruit.showInfo();
+            alert("this apple's color is" + this.color + "this apple's weight is" + this.weight + "!");
+        }
+        return apple;
+    }
+    var apple = new JsApple();
+    apple.showInfo();
+
+</script>

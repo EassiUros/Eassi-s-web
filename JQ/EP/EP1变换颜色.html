@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+</head>
+<style>
+    div section{ 
+        width: 30px; 
+        height: 30px; 
+        margin: 10px; 
+        display: inline-block; 
+    }
+    div section{ 
+        background-color: black; 
+        border-radius: 50%;
+    }
+    div section:hover{ 
+        cursor:pointer;
+    }
+    div input,
+    div button{
+        position: absolute;
+        margin-top: 10px;
+        height: 30px; 
+        width: 230px;
+    }
+    div button{
+        width: 50px;
+        margin-left: 240px;
+        cursor:pointer;
+    }
+</style>
+<body>
+    <div>
+        <section onclick="instantClick()" id="insC"></section>
+        <input type="text" id="insInput" oninput="instantChange()" onpropertychange="instantChange()" placeholder="请您输入十六进制颜色码，如#123123。" maxlength="7">
+        <button onclick="instantClick()">确认</button>
+    </div>
+    
+    <center>
+        <h2 style="display:inline-block;">颜色主题jquery变换</h2>
+        <form action="" id="simpleCalc">
+            <span>input：</span><input type="text" required><br><br>
+            <button id="calc">开始计算</button>
+        </form>
+        <span id="result"></span>
+    </center>
+
+    <script>
+        //即时换色
+        // 设置需要换色的元素及其样式（与上一篇相同）
+        function change(colo){
+            $("#calc").css("background-color", colo);
+            $("h2, small, span").css("color", colo);
+            $("input").css("color", colo);
+            $("input[type=text]").focus(function(){$(this).css("outline", "none")});
+            $("input[type=text]").focus(function(){$(this).css("border", "2px solid " + colo)});
+            $("input[type=text]").blur(function(){$(this).css("border", "1px solid gray")});
+        }
+        // 设置input输入的颜色值
+        var colorC;
+        function instantChange(){
+            colorC = $("#insInput").val();
+            // 改变section的背景色
+            $("#insC").css("background-color", colorC);
+        } 
+        // 调用页面换色方法
+        function instantClick(){
+            change(colorC);
+        }
+        
+    </script>
+</body>
+</html>

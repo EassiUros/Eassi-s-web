@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        @font-face {font-family: "iconfont";
+        src: url('./iconfont/iconfont.eot?t=1553960438096'); /* IE9 */
+        src: url('./iconfont/iconfont.eot?t=1553960438096#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAK4AAsAAAAABmwAAAJrAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCCcAp4fwE2AiQDCAsGAAQgBYRtBzAbpQXIrrApw71oi3CCOyzEy8RvE4yIN8TD036/zp03qCYRjaJZNBFFS/gREoRGipQKofjuNrb+9XbTqrmXcqWzfTRDqFqWkhAJzYToaE6LQ7Q30CirRqSKMnj58DdIdrNAdhoTQJa5VGfLrtiAy+lPoAcZdUC57UljTR4TMAo4oL0xiqwYG8YueIHPCdTqYajty/t+bUpmrwvEnUK42lQhLMssVy1UNhzN4kmF6vSQVvMY/T5+HEU1SUXBbti7uBBrx++cgqJULp0GhAgBna5AgSkgE0eN6R1NwTitNt0yAI5VG7wr/8AljmoX7K+zq+tBF1Q8k9JTPWp1AjnJDgCzmM3bU0V31dsvV3M2eC6fHjaGfX/qS7U5Gr58vj6uD0bgxudyrV/OtHHyP+NZnpO1txbktjdY+3FB61+7nxeOzq8niGYnRwT3v3aZxeXf6rrNxl5//49WlEtZUUL1Pj3Bv1EO7MuG2namrCkbvcnApLUJtWpRhv2tzlRLx43kQ7WO2/FW6c5QqDZEZnYKFeosoVK1NdSa5E/XaVM1Ra7BhAEQmk0kjV5QaLbIzG5U6HRRqTkK1DqJtivrjMT1zJaNnIsihAiyQE3JdbszcW0Xiadzdl4d8UO0HSUGNDNXzl2hifYSO5pPjrorgdjUAAavoa5TKDZVUXD3kuuOOzh70fShvUiN2owtNsRxIREIIiATUCYpGO2aqXy/CxEeHcfuaKrLDiGbQ5kcEMsNIK8M5qCmR3mn8RFHOpcECBtlAAwWIZ2OAqV5kQoJXHvShORYBzrDZKhhb3uT8QPlrA3bmsKZV6i89DiTV2o1AAAA') format('woff2'),
+        url('./iconfont/iconfont.woff?t=1553960438096') format('woff'),
+        url('./iconfont/iconfont.ttf?t=1553960438096') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+        url('./iconfont/iconfont.svg?t=1553960438096#iconfont') format('svg'); /* iOS 4.1- */
+        }
+
+        .iconfont {
+        font-family: "iconfont" !important;
+        font-size: 16px;
+        font-style: normal;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        }
+
+        .icon-closed:before {
+        content: "\e676";
+        }
+
+
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        ul li{
+            list-style: none;
+        }
+        input[type="text"] {
+            width: 70%;
+        }
+        main {
+            width: 960px;
+            height: 500px;
+            border-radius: 10px;
+            margin: 50px auto;
+        }
+        main h4 {
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+        }
+        .tabsbox {
+            width: 900px;
+            height: 400px;
+            margin: 0 auto;
+            border: 1px solid lightsalmon;
+            position: relative;
+        }
+        nav ul{
+            overflow: hidden;
+        }
+        nav ul li {
+            float: left;
+            width: 100px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            border-right: 1px solid #ccc;
+            position: relative;
+        }
+        
+        nav ul .liactive {
+            border-bottom: 2px solid #fff;
+            z-index: 9;
+        }
+        nav ul li span:last-child {
+            position: absolute;
+            user-select: none;
+            font-style: 12px;
+            top: -18px;
+            right: 0;
+            display: inline-block;
+            height: 20px;
+        }
+        .tabadd {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        .tabadd span {
+            display: block;
+            height: 20px;
+            width: 20px;
+            margin: 10px;
+            text-align: center;
+            line-height: 20px;
+            border: 1px solid #ccc;
+            user-select: none;
+        }
+        .tabadd span, ul li:hover {
+            cursor: pointer;
+        }
+        .tabscon {
+            width: 100%;
+            height: 300px;
+            position: absolute;
+            padding: 30px;
+            top: 50px;
+            left: 0;
+            box-sizing: border-box;
+            border-top: 1px solid #ccc;
+        }
+        .tabscon section {
+            display: none;
+            width: 100%;
+            height: 100%;
+        }
+        .tabscon section.conactive {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h4>Js面向对象动态添加标签页</h4>
+        <div class="tabsbox" id="tabsbox">
+            <nav class="firstnav">
+                <ul>
+                    <li class="liactive"><span>测试一</span><span class="iconfont icon-closed"></span></li>
+                    <li><span>测试二</span><span class="iconfont icon-closed"></span></li>
+                    <li><span>测试三</span><span class="iconfont icon-closed"></span></li>
+                </ul>
+                <div class="tabadd">
+                    <span>+</span>
+                </div>
+            </nav>
+
+            <!-- tab内容 -->
+            <div class="tabscon">
+                <section class="conactive">测试一</section>
+                <section>测试二</section>
+                <section>测试三</section>
+            </div>
+        </div>
+    </main>
+    
+</body>
+</html>
+<script>
+    var that;
+    class Tab {
+        constructor(id) {
+            that = this;
+            this.main = document.querySelector(id);
+            this.add = this.main.querySelector(".tabadd");
+            // li的父元素
+            this.ul = this.main.querySelector(".firstnav ul:first-child");
+            this.tabscon = this.main.querySelector(".tabscon");
+            this.init();
+        }
+
+        // 初始化
+        init() {
+            this.updateNode();
+            this.add.onclick = this.addTab;
+            for(var i = 0; i < this.lis.length; i++) {
+                this.lis[i].index = i;
+                this.lis[i].onclick = this.toggleTab;
+                this.closed[i].onclick = this.removeTab;
+                this.spans[i].ondblclick = this.editTab;
+                this.section[i].ondblclick = this.editTab;
+            }
+        }
+        // 获取所有的li和section
+        updateNode() {
+            this.lis = this.main.querySelectorAll("li");
+            this.section = this.main.querySelectorAll("section");
+            this.closed = this.main.querySelectorAll(".icon-closed");
+            this.spans = this.main.querySelectorAll(".firstnav li span:first-child");
+        }
+        // 1.切换功能
+        toggleTab() {
+            console.log(this.index);
+            that.clearClass();
+            this.className = "liactive";
+            that.section[this.index].className = "conactive";
+        }
+        clearClass() {
+            for(var i = 0; i < this.lis.length; i++) {
+                this.lis[i].className = "";
+                this.section[i].className = "";
+            }
+        }
+        // 2.添加功能
+        addTab() {
+            that.clearClass();
+            // 1.创建li元素和section元素
+            // var li = document.createElement("li");
+            // li.innerHTML = "测试" ;
+            // var set = document.createElement("section");
+            // set.innerHTML = "测试";
+            var random = Math.random();
+            var li = '<li class="liactive"><span>新选项卡</span><span class= "iconfont icon-closed"></span></li>';
+            var section = '<section class="conactive">测试' + random + '</section>'
+            // 2.将两个元素追加到父元素中
+            // that.ul.appendChild(li);
+            // that.tabscon.appendChild(set);
+            that.ul.insertAdjacentHTML('beforeend',li);
+            that.tabscon.insertAdjacentHTML('beforeend',section);
+            that.init();
+        }
+        // 3.删除功能
+        removeTab(e) {
+            // 阻止li冒泡行为
+            e.stopPropagation();
+            // 获取父节点li的index
+            var index = this.parentNode.index;
+            // 删除li节点
+            that.lis[index].remove();
+            // 删除section节点
+            that.section[index].remove();
+            // 重新获取li，section和closed节点
+            that.init();
+            // 判断是否删除的是选定选项卡，若不是则直接返回，不进行后面操作
+            if(document.querySelector(".liactive")) return;
+            //若删除的是选定选项卡，则前一项进行默认点击操作
+            index--;
+            that.lis[index] && that.lis[index].click();
+        }
+        // 4.修改功能
+        editTab() {
+            // 禁止选定文字
+            window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty();
+            // alert("11");
+            var str1 = this.innerHTML;
+            this.innerHTML = "<input type='text' />";
+            var input = this.children[0];
+            input.value = str1;
+            input.select();
+            input.onblur = function() {
+                this.parentNode.innerHTML = this.value;
+            }
+            input.onkeyup = function(e) {
+                if(e.keyCode === 13) {
+                    this.blur();
+                }
+            }
+            // 避免耦合
+            // var index = this.parentNode.index;
+            // that.section[index].ondblclick = function() {
+            //     var str2 = that.section[index].innerHTML;
+            //     that.section[index].innerHTML = "<input type='text' />"
+            //     var text = that.section[index].children[0];
+            //     text.value = str2;
+            //     text.select();
+            //     text.onblur = function() {
+            //         this.parentNode.innerHTML = this.value;
+            //     }
+            //     text.onkeyup = function(e) {
+            //         if(e.keyCode === 13) {
+            //             this.blur();
+            //         }
+            //     }
+            // }
+            
+        }
+
+    }
+    var chi = new Tab("#tabsbox");
+</script>

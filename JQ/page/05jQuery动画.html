@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            background-color: yellowgreen;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <button class="show">show</button>
+    <button class="hide">hide</button>
+    <button class="slidedown">slidedown</button>
+    <button class="slideup">slideup</button>
+    <button class="slidetoggle">slidetoggle</button>
+    <button class="fadein">fadein</button>
+    <button class="fadeout">fadeout</button>
+    <button class="fadetoggle">fadetoggle</button>
+    <button class="fadeto">fadeto</button>
+    <button class="animate">animation</button>
+    <button class="stop">stop</button>
+    <div class="box"></div>
+</body>
+</html>
+<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+    $(function(){
+        $(".show").click(function(){
+            $(".box").show(3000,"linear",function(){
+                $(this).html(2000,"23333333");
+            });
+        });
+        $(".hide").click(function(){
+            $(".box").hide(3000);
+        });
+        $(".slidedown").click(function(){
+            $(".box").slideDown(3000);
+        });
+        $(".slideup").click(function(){
+            $(".box").slideUp(3000);
+        });
+        $(".slidetoggle").click(function(){
+            $(".box").slideToggle(3000);
+        });
+        $(".fadein").click(function(){
+            $(".box").fadeIn(3000);
+        });
+        $(".fadeout").click(function(){
+            $(".box").fadeOut(3000);
+        });
+        $(".fadetoggle").click(function(){
+            $(".box").fadeToggle(3000);
+        })
+        $(".fadeto").click(function(){
+            $(".box").fadeTo(3000,0.4);
+        });
+        $(".animate").click(function(){
+            $(".box").animate({
+                // width:'100px',
+                // 可使用相对值
+                // width:'+=100px',
+                // 可使用预设
+                // height:'toggle',
+                // width:'hide',
+                height:'show',
+                // height:'100px',
+                // opacity:'1'
+                // 如需设置位置需将position设为relative或者absolute
+                // jQuery不包含色彩动画，如需要可从jQuery.com 下载Color Animations插件
+                // backgroundColor:'yellow'
+            },500);
+            // animate队列添加多个动画
+            $(".box").animate({
+                width:'hide',
+                opacity:'0'
+            },500);
+            $(".box").animate({
+                height:'show',
+                opacity:'1'
+            },500);
+        });
+        $(".stop").click(function(){
+            $(".box").stop();
+        })
+    })
+</script>

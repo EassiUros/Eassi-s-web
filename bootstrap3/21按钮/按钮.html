@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap 实例</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- loading-state 此属性V3.3.5不再建议使用 -->
+        <button type="button" data-loading-text="loading" class="btn btn-default js-loading-btn">click me</button>
+        <!-- complete-state -->
+        <button type="button" data-complete-text="over" class="btn btn-primary" id="myStateButton" autocomplete="on">click</button>
+        <!-- sigle toggle -->
+        <button type="button" data-toggle="button" data-complete-text="finished!" class="btn btn-primary" autocomplete="off">start</button>
+
+        <!-- checkbox -->
+        <div class="btn-group" data-toggle="buttons">
+            <label class="btn btn-primary active">
+                <input type="checkbox" autocomplete="off" checked>checkbox1(pre-checked)
+            </label>
+            <label class="btn btn-primary">
+                <input type="checkbox" autocomplete="off" checked>checkbox2
+            </label>
+            <label class="btn btn-primary">
+                <input type="checkbox" autocomplete="off" checked>checkbox3
+            </label>
+        </div>
+
+        <!-- radio -->
+        <div class="btn-group" data-toggle="buttons">
+            <label class="btn btn-primary active">
+                <input type="radio" name="option" autocomplete="off" checked>radiobox1(pre-checked)
+            </label>
+            <label class="btn btn-primary">
+                <input type="radio" name="option" autocomplete="off" checked>radiobox2
+            </label>
+            <label class="btn btn-primary">
+                <input type="radio" name="option" autocomplete="off" checked>radiobox3
+            </label>
+        </div>
+    </div>
+</body>
+</html>
+<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+<script>
+    $(".js-loading-btn").on("click", function(e){
+        var btn = $(this).button("loading");
+        setTimeout(function(e){
+            btn.button("reset");
+        },3000);
+    })
+
+  $("#myStateButton").on("click", function() {
+      $(this).button("complete");
+  })
+</script>

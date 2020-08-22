@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap 实例</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+  <script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+  <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+</head>
+<body>
+    <!-- aria-hidden="true" 是避免屏幕阅读器抓取 -->
+    <!-- <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#Mymodel">
+        启动模态框
+    </button>
+    <div class="modal" id="Mymodel" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    
+                    <button type="button" class="close" data-dismiss="modal" aria-label="close" aria-hidden="true"><span>&times;</span></button>
+                    <h4 class="modal-title">Model title</h4>
+                </div>
+                <div class="modal-body">
+                    One fine body ...
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target=".bs-example-modal-lg">
+        启动大模态框
+    </button>
+    <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#My">
+        启动小模态框
+    </button>
+    <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#Mymodal" data-msi="@mdo">
+        启动Message模态框
+    </button>
+    <div class="modal bs-example-modal-lg fade" tabindex="-1" role="dialog" id="Mymodel">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="close"><span>&times;</span></button>
+                    <h4 class="modal-title">Model title</h4>
+                </div>
+                <div class="modal-body">
+                    One fine body...
+                    按下ESC键退出
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal bs-example-modal-sm" tabindex="-1" role="dialog" id="My">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="close"><span>&times;</span></button>
+                    <h4 class="modal-title">Model title</h4>
+                </div>
+                <div class="modal-body">
+                    One fine body...
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" tabindex="-1" role="dialog" id="Mymodal">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="close"><span>&times;</span></button>
+                    <div class="modal-title">
+                        Message
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form">
+                            <label for="recipent-name">Message</label>
+                            <input type="text" id="recipent-name">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default btn-primary">submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    $("#Mymodel").modal({
+        keboard: false
+    });
+    $("#Mymodal").on("show.bs.modal", function(e) {
+        var button = $(e.relatedTarget);
+        var recipent = button.data("msi");
+        var modal = $(this);
+        modal.find(".modal-title").text("NewMessage" + recipent);
+        modal.find(".modal-body input").val(recipent);
+    })
+    
+</script>

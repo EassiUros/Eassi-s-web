@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    // 作为值的函数传递
+    // function callSomeFunction(someFunction,someArguments) {
+    //     return someFunction(someArguments);
+    // }
+    // function add(num) {
+    //     return num + 10;
+    // }
+    // var result = callSomeFunction(add,10);
+    // alert(result);
+    // function getGreeting(name) {
+    //     return "hello" + name;
+    // }
+    // var result2 = callSomeFunction(getGreeting,"Nicholas");
+    // alert(result2);
+
+    function compareFunction(propertyName) {
+        return function(obj1,obj2) {
+            var val1 = obj1[propertyName];
+            var val2 = obj2[propertyName];
+            if(val1 < val2)
+            {
+                return -1;
+            }
+            else if(val1 > val2)
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
+        };
+    }
+    var date = [{name:"zachary", age:28},{name:"nicholas",age:34}];
+    date.sort(compareFunction("name"));
+    alert(date[0].name);
+    date.sort(compareFunction("age"));
+    alert(date[0].age);
+</script>

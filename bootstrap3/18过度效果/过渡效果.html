@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap 实例</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
+  <style>
+      .mydiv {
+          height: 150px;
+          width: 150px;
+          background-color: red;
+          -webkit-transition: width 2s;
+          transition: width 2s;
+      }
+      .mydiv:hover {
+          width: 400px;
+      }
+  </style>
+</head>
+<body>
+    <div class="mydiv" id="mydiv"></div>
+</body>
+</html>
+<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+<script>
+    document.getElementById("mydiv").addEventListener("transitionend", function() {
+        this.innerHTML = "过度效果执行完毕";
+    })
+</script>

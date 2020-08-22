@@ -1,0 +1,147 @@
+body{
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
+
+.navbar-default{
+    background-color: #fff;
+    border: none;
+    box-shadow: 0px 2px 8px 0px rgba(50,50,50,0.88);
+}
+
+.navbar-default .navbar-brand {
+    color: #666;
+    font-size: 30px;
+    font-weight: bold;
+    height: 70px;
+    line-height: 35px;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: #777;
+    font-size: 16px;
+    font-weight: bold;
+    height: 70px;
+    line-height: 35px;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: #777;
+    background-color: #eee;
+}
+
+.navbar-toggle:hover {
+    background-color: #ddd;
+}
+
+.navbar-toggle .icon-bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    border-radius: 1px;
+    background-color: #666;
+}
+
+/* home */
+#home{
+    background: url(../images/scenary\ \(1\).jpg) no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    margin-top: 70px;
+    color: antiquewhite;
+    text-align: center;
+    width: 100%;
+    height: -webkit-fill-available;
+}
+
+#mirror{
+    width: 100%;
+    height: 0px;
+    background: rgba(255,200,200,0.3);
+    /* padding: 70px; */
+    animation: mirror 8s forwards ease;
+}
+
+@keyframes mirror{
+    from {height: 0px}
+    to {height: 720px}
+}
+
+#home .row{
+    animation-delay: 1.5s;
+    margin: 70px;
+}
+
+#home h1{
+    margin-top: 120px;
+}
+#mirror p{
+    font-size: larger;
+    font-weight: 400;
+    line-height: 25px;
+}
+
+ #content{
+    height: auto;
+    width: 100%;
+    margin-top: 100px;
+    padding-top:40px;
+    padding-bottom: 120px;
+    background-color: rgba(250, 233, 212, 0.527);
+}
+
+#content h3{
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+#content a{
+    color: #666;
+}
+
+
+#vlog{
+    margin-top: 75px;
+    /* padding-bottom: 25px; */
+    padding-left: 20px;
+    position: relative;
+}
+
+
+#tupian{
+    display: inline-block;
+    width: 45%;
+}
+
+#tupian img{
+    border-radius: 5px;
+}
+
+#vlog span{
+    display: inline-block;
+    width: 50%;
+    height: auto;
+    margin-left: 25px;
+    vertical-align: top;
+    line-height: 20px;
+    margin-top: 35px;
+    white-space: normal;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+#footer{
+    height: 120px;
+    margin-top: 35px;
+    padding-top: 30px;
+    text-align: center;
+    background-color: rgba(100,100,100,0.6);
+}
+
+
+.text-muted{
+    color: #ddd;
+    line-height: 25px;
+}

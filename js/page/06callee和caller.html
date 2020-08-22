@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //函数内部对象arguments(类数组)和this(指针)
+    //函数内部属性callee和caller
+    // callee指针用于指向拥有arguments对象的函数
+    // function factorical(num) {
+    //     if(num <= 1)
+    //     {
+    //         return 1;
+    //     }
+    //     else 
+    //     {
+    //         return num * factorical(num - 1);
+    //     }
+    // }
+
+    // function factorical(num) {
+    //     if(num <= 1)
+    //     {
+    //         return 1;
+    //     }
+    //     else 
+    //     {
+    //         return num * arguments.callee(num - 1);
+    //     }
+    // }
+    // console.log(factorical(5));
+
+    // 松耦合
+    // var trueFactorial = factorical;
+    // factorical = function() {
+    //     return 0;
+    // }
+    // alert(trueFactorial(5));
+    // alert(factorical(5));
+
+
+    // caller这个属性中保存着调用当前函数的函数的引用
+    // 若在全局作用域中调用函数，caller值为null
+    // function outer() {
+    //     inner();
+    // }
+    // function inner() {
+    //     alert(inner.caller);
+    // }
+    // outer();
+
+    //松耦合
+    // function outer() {
+    //     inner();
+    // }
+    // function inner() {
+    //     alert(arguments.callee.caller);
+    // }
+    // outer();
+
+    var color = "red";
+    function getColor() {
+        console.log("color:" + this.color);
+    }
+    var obj = {
+        color:"blue"
+    }
+    obj.getColor = getColor;
+    obj.getColor();
+</script>

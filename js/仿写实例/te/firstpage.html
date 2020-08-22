@@ -1,0 +1,404 @@
+<!DocType html>
+<html language="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=width-device initial-scale=1 minimum-scale=1 maximum-scale=1 user-scalable=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>firstpage</title>
+        <style>
+            /* table,tr,td{
+                border: 1px solid blue;
+            } */
+        </style>
+        <link rel="stylesheet" type="text/css" href="../CSS/first.css">
+    </head>
+    <body>
+        <!-- 图片点击隐藏
+            <p id="content">this is a paragraph html</p>
+        <button onclick="hide(content)">hide</button> -->
+        <!-- <img src="images/1.jpg">
+        <img src="images/1.jpg">
+        <img src="images/1.jpg"> -->
+        
+        <!-- Date对象prototype属性
+            <p id="month"></p>
+        <button onclick="ismonth()">click</button> -->
+
+
+        <!-- 异常错误抛出
+            <input type="text" id="write">
+        <button id="btn" onclick="checkon()">submit</button>
+        <p id="demo"></p> -->
+
+        <!-- <p>判断是否为数组</p>
+        <p id="array"></p> -->
+
+        <!-- 简易计算器
+            <table>
+            <tr>
+                <td colspan="5" id="show">0</td>
+            </tr>
+            <tr>
+                <td class="num">0</td>
+                <td class="num">.</td>
+                <td class="last"><</td>
+                <td colspan="2" id="clear">C</td>
+            </tr>
+            <tr>
+                <td class="num">7</td>
+                <td class="num">8</td>
+                <td class="num">9</td>
+                <td class="num">+</td>
+                <td class="num">-</td>
+            </tr>
+            <tr>
+                <td class="num">4</td>
+                <td class="num">5</td>
+                <td class="num">6</td>
+                <td class="num">*</td>
+                <td class="num">/</td>
+            </tr>
+            <tr>
+                <td class="num">3</td>
+                <td class="num">2</td>
+                <td class="num">1</td>
+                <td id="equal" colspan="2">=</td>
+            </tr>
+        </table> -->
+
+        <!-- <button onclick="Run()" >click</button> -->
+
+        <!-- 邮箱格式验证及验证输入是否为数字
+            <form name="myform" method="POST" target="#" onsubmit="return onvalidate()">
+        <input type="text" name="email">
+        <input type="submit" value="submit">
+        </form> -->
+
+        <!-- <input type="text" pattern="[A-Za-z][1-10]{0,5}"" id="num">
+        <button id="btn" onclick="check()">click</button> -->
+
+        
+        <div class="ch"></div>
+       
+
+
+
+
+        
+
+    </body>
+    <script>
+
+        // map()方法返回一个由原数组中的每个元素调用一个指定方法后的返回值组成的新数组，它不会改变原来的数组。
+
+
+        //apply()和call()
+        // function fun(name){
+        //     this.name = name;
+        //     console.log(this.name);
+
+        // }
+        // fun("haha");
+
+        // var person = {
+        //     name: "zhangsan",
+        //     age: 23,
+        //     who: function(){
+        //         console.log(this.name + "今年" + this.age);
+        //         console.log(person===this);
+        //     }
+        // }
+        // var man = {
+        //     name: "lisi",
+        //     age: "24"
+        // }
+        // person.who();
+        // person.who.call(man);
+        // function person(name,age){
+        //     this.name = name;
+        //     this.age = age;
+        //     this.who = who;
+        //     function who(name){
+        //         // document.write(name);
+        //         console.log(this.name + "今年" + this.age);
+        //         console.log(person === this);
+        //     }
+        // }
+        // man = new person("zhangsan",23);
+        // man.who();
+
+        // 函数调用
+        // function Foo(){
+        // getName = function(){ alert(1); };
+        // return this;
+        // };
+        // function getName(){
+        //     alert(5);
+        // }
+        // Foo.getName = function(){ alert(2); };
+        // Foo.prototype.getName = function(){ alert(3); };
+
+        // getName = function(){ alert(4); };
+
+        // Foo.getName();              // 2
+        // getName();                  // 4
+        // Foo().getName();            // 4  1
+
+        // getName();                  // 4  1
+        // new Foo.getName();          // 2
+        // new Foo().getName();        // 3
+
+        // new new Foo().getName();  
+
+
+
+        // function person(name,age)
+        //     {
+        //     this.name = name;
+        //     this.age=age;
+        //     this.changeName = changeName;
+        //     function changeName(name)
+        //     {
+        //     document.write(name);
+        //     }
+        //     }
+        //     myMother=new person("Jobs",56);
+        //     myMother.changeName("Ballmer");
+        
+
+        // //结果如下：
+        // zhangsan今年23
+        // firstpage.html:103 true
+        // firstpage.html:102 lisi今年24
+        // firstpage.html:103 false
+        // man === this
+        // false
+        // person === this
+        // false
+        // window === this
+        // true
+
+
+        // var a = [1,2,3,4,5,6,7,8,9];         //实现得到数组中最大的一项
+        // var max = Math.max.apply(null,a);   //使用apply()转换Math.max([param1,param2])为Math.max(null,array)
+        // alert(max);
+
+        // var a = [1,2,3,4,5,6,7,8,9];        //实现得到数组中最小的一项
+        // var min = Math.min.apply(null,a);   //使用apply()转换Math.max([param1,param2])为Math.max(null,array)
+        // alert(min);
+
+        // var b = [a,a,a,a,a,a,a,a,a];
+        // var len = Array.prototype.push.apply(a,b);  //使用Array.prototype.push()方法实现两个数组合并，push(param1,param2,...)同样以apply()方法转换
+        // console.log(len);
+
+
+        // function Animal(name){
+        // this.name = name;
+        // this.showName = function(){
+        //         alert(this.name);    
+        //     }    
+        // }
+
+        // /*apply的用法*/
+        // // function Cat(name){
+        // // Animal.apply(this,[name]);    
+        // // }
+
+        // var cat = new Cat("咕咕");
+        // cat.showName();
+
+        // /*call的用法*/
+        // function Cat(name){
+        //     Animal.call(this,name);
+        // }
+        
+
+
+
+
+        // //约束验证DOM方法
+        // function check(){
+        //     var x = document.getElementById("num");
+        //     if(x.checkValidity() == false){
+        //         alert(x.validationMessage);
+        //     }
+        // }
+
+
+
+        //验证输入是否为数字
+        // function onvalidate(){
+        //     var x = document.forms["myform"]["email"].value;
+        //     if(x == null || x ==" " || isNaN(x) ){
+        //         alert("this is a valid input");
+        //     }
+        // }
+
+        //邮箱格式验证
+        // function onvalidate(){
+        //     var x = document.forms["myform"]["email"].value;
+        //     var a =x.indexOf("@");
+        //     var d =x.lastIndexOf(".");
+        //     if (a<1 || d<a+2 || d+2>=x.length){
+        //         alert("不是一个有效的 e-mail 地址");
+        //         return false;
+        //     }
+        // }
+
+
+
+        // function Run(){
+        //     var objShell
+        //     var objShell= new ActiveXObject("WScript.Shell")
+        //     var iReturnCode=objShell.Run("cmd.exe /c md test",0,true)
+        //     iReturnCode=objShell.Run("cmd.exe /c copy d:/text.txt mytest",0,true)
+        // }
+        
+
+        // function   Run(strPath)   { 
+        //     try   { 
+        //         var   objShell   =   new   ActiveXObject("Wscript.shell"); 
+        //         objShell.Run("notepad++"); 
+        //         objShell   =   null; 
+        //         } 
+        //         catch (e)
+        //         {
+        //         alert('找不到文件"'+strPath+'"(或它的组件之一)。请确定路径和文件名是否正确，而且所需的库文件均可用。'); 
+        //         } 
+        // }
+
+        //简易计算器
+        // var oshow = document.getElementById("show");
+        // var onum = document.getElementsByClassName("num");
+        // var clear = document.getElementById("clear");
+        // var equal = document.getElementById("equal");
+        // var run = " ";
+
+        // equal.onclick = function(){
+        //     if(run!=" "){
+        //         oshow.innerHTML = eval(run);
+        //     }
+        //     if(oshow.innerHTML!=="0"){
+        //         run = oshow.innerHTML;
+        //     }
+        // }
+
+        // clear.onclick = function(){
+        //     run = " ";
+        //     oshow.innerHTML = "0";
+        // }
+
+        // for(var i = 0;i <= onum.length;i++){
+        //     // 这里object[i]是对象。aLi[i].index=i是给这个对象添加一个自定义属性index并且属性值为i，index就是索引的意思。当然这个属性名你可以自取。这里给它自定义这个属性是希望在后面通过这个属性找到并利用这个对象。
+        //     // 把i的值储存到index中，在oDivs[this.index].className = “”;这句中this.index的值是当前鼠标所在的元素，oLis[i].index = i;的意义是可以让this.index获取任意一个index值
+        //     // l[i].index = i 防止闭包函数中无法正常获取当前索引i，而衍生出的一个绑定在dom元素上的数据index
+        //     onum[i].index = i;  
+        //     onum[i].onclick = function(){
+        //         run += onum[this.index].innerHTML;
+        //         oshow.innerHTML = run;
+        //     };
+        // }
+        
+        
+        // var fruits = ["Banana", "Orange", "Apple", "Mango"];
+        // document.getElementById("demo").innerHTML = isArray(fruits);
+        // function isArray(myArray) {
+        //     return myArray.constructor.toString().indexOf("Array") > -1;
+        // }
+
+
+        // function checkon(){
+        //     try {
+        //         let x = document.getElementById("write").value;
+        //         if(x=="")    throw "值为空";
+        //         if(isNaN(x)) throw "不是数字";
+        //         if(x>10)     throw "太大";
+        //         if(x<5)      throw "太小";
+        //     } catch (error) {
+        //         // let y = document.createElement("p");
+        //         // y.innerHTML = "错误" + error + "!";
+        //         // document.body.appendChild(y);
+        //         let y = document.getElementById("demo");
+        //         y.innerHTML = "错误：" + error + "!";
+
+        //     }
+        // }
+
+
+        //Date对象prototypeprototype 属性使您有能力向对象添加属性和方法。当构造一个原型，所有的日期对象都会默认添加属性和方法。
+        // Date.prototype.mymonth = function(){
+        //     if(this.getMonth() == 0){this.mypro = "一月";};
+        //     if(this.getMonth() == 1){this.mypro = "二月";};
+        //     if(this.getMonth() == 2){this.mypro = "三月";};
+        //     if(this.getMonth() == 3){this.mypro = "四月";};
+        //     if(this.getMonth() == 4){this.mypro = "五月";};
+        //     if(this.getMonth() == 5){this.mypro = "六月";};
+        //     if(this.getMonth() == 6){this.mypro = "七月";};
+        //     if(this.getMonth() == 7){this.mypro = "八月";};
+        //     if(this.getMonth() == 8){this.mypro = "九月";};
+        //     if(this.getMonth() == 9){this.mypro = "十月";};
+        //     if(this.getMonth() == 10){this.mypro = "十一月";};
+        //     if(this.getMonth() == 11){this.mypro = "十二月";};
+        // }
+        // function ismonth(){
+        //     let r = new Date();
+        //     r.mymonth();
+        //     document.getElementById("month").innerHTML = r.mypro;
+        // }
+        //javascript进行CSS操作，给元素绑定事件
+        // window.onload = function(){
+        //     var images = document.getElementsByTagName("img");
+        //     for( var i = 0; i < images.length; i++){
+        //         var image = images[i];
+        //         if(image.addEventListener)
+        //         image.addEventListener("click",hide,false);
+        //         else
+        //         image.attachEvent("onclick",hide);
+        //     }
+        // }
+        // function hide(e){
+        //     e.style.display = "none";    //隐藏元素，其所占空间随之消失
+        //     e.style.visibility = "hidden";  //设为不可见，但保留其所占空间
+        //     e.target.style.visibility = "hidden";
+        // };
+
+
+
+        //定时器
+        // function moveon(){
+        //     var answer = confirm("are you ready?");
+        //     if(answer) window.location = "http://www.baidu.com";
+        // }
+        // setTimeout(moveon,3000);     //3秒后执行moveon函数
+
+
+        //页面加载完成后执行initall函数
+        // window.onload = initall;
+        // function initall(){
+        //     var answer = confirm("are you ready?");  //弹出对话框
+        //     if(answer){                              //选择结果判断，确定为true，取消为false
+        //         var message = "console log is printed.";
+        //         debug(message);
+        //     }
+        // }
+        // function debug(msg){
+        //     //通过查看HTML元素id属性来查找文档的调试部分
+        //     var log = document.getElementById("debuglog");
+        //     //如果这个元素不存在，则创建一个
+        //     if(!log){
+        //         log = document.createElement("div");    //创建一个新的div元素
+        //         log.id = "debuglog";    //给这个元素id赋值
+        //         log.innerHTML = "<h1>Debug</h1>";   //定义初始内容
+        //         document.body.appendChild(log); //将其添加到文档末尾
+        //     }
+        //     //将消息包装在<pre>中，并添加至log中
+        //     var pre = document.createElement("pre");    //创建<pre>标签
+        //     var text = document.createTextNode(msg);    //将msg包装在一个文本节点中
+        //     pre.appendChild(text);  //将文本添加至<pre>
+        //     log.appendChild(pre);
+
+        // }
+
+
+    </script>
+</html>

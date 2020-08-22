@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>mouseover事件</title>
+    </head>
+    <body>
+        <p>鼠标划过无效果</p>
+        <br>
+        <p onmouseout="alert('鼠标移开了')">鼠标从该元素上移开时弹出对话框</p>
+        
+        <br>
+        <p style="background:red" onmouseover="show()">鼠标滑过弹出对话框</p>
+        <script>
+            function show(){
+                alert('就是这个g对话框！');
+            }
+        </script>
+    </body>
+</html>

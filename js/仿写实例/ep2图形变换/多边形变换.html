@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            margin: 100px auto;
+            background-color: pink;
+            clip-path: polygon(
+                50% 0%,
+                0% 100%,
+                100% 100%,
+                100% 100%,
+                100% 100%
+            );
+            transition: .3s;
+            animation: change 5s linear;
+        }
+        @keyframes change {
+            50% {
+                background-color: yellow;
+                clip-path: polygon(
+                    50% 0,
+                    100% 50%,
+                    50% 100%,
+                    0 50%,
+                    0 50%
+                );
+            }
+            100% {
+                background-color: yellowgreen;
+                clip-path: polygon(
+                    25% 0,
+                    75% 0,
+                    100% 50%,
+                    50% 100%,
+                    0 50%
+                );
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        clip-path 动画虽然美好，但是存在一定的局限性，那就是进行过渡的两个状态，坐标顶点的数量必须一致。
+
+        也就是如果我希望从三角形过渡到矩形。假设三角形和矩形的 clip-path 分别为：
+
+        三角形：clip-path: polygon(50% 0, 0 100%, 100% 0)
+
+        矩形： clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%)
+
+        进行过渡动画时候，直接从 polygon(50% 0, 0 100%, 100% 0) --> polygon(0 0, 100% 0, 100% 100%, 0 100%) 是不行的，因为是从 3 个坐标点变换到 4 个坐标点。
+
+        因此这里需要这用一个讨巧的办法，在三角形的表示方法中，使用四个坐标点表示，其中两个坐标点进行重合即可。也就是：
+
+        三角形：clip-path: polygon(50% 0, 0 100%, 100% 0) -> clip-path: polygon(50% 0, 50% 0, 0 100%, 100% 0)
+     -->
+    <div class="box"></div>
+</body>
+</html>

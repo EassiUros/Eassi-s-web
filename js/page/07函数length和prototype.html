@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //函数的属性length和prototype
+    //length属性表示函数希望接收的命名参数的个数
+    // function sayName(name) {
+    //     alert(name);
+    // }
+    // function sum(num1,num2) {
+    //     alert(num1 + num2);
+    // }
+    // function sayHi() {
+    //     alert("hello");
+    // }
+    // alert(sayName.length);
+    // alert(sum.length);
+    // alert(sayHi.length);
+
+    //prototype属性是保存引用类型所有实例方法的真正所在
+    //如toString和valueOf等方法实际上都保存在prototype名下
+    //只是通过各自对象的实例访问
+    //prototype属性是不可枚举的，因此使用for-in无法发现
+    // function data(name) {
+    //     console.log(name);
+    // }
+    // function show(name) {
+    //     alert(name);
+    // }
+    // var obj1 = new data("zhangsan");
+    // obj1.show = show;   //为obj1实例添加show方法
+    // obj1.show("lisi");
+    // var obj2 = new data("wangmazi");
+    // obj2.show = show;
+    // obj2.show("wangmazi");  
+
+    //使用prototype原型为data类添加方法，则其所有实例均可调用该方法
+    function Data(name,age) {
+        this.name = name;
+        this.age = age;
+    }
+    Data.prototype.showName = function() {
+        alert(this.name);
+    }
+    Data.prototype.showAge = function() {
+        alert(this.age);
+    }
+    var obj1 = new Data("zhangsan",24);
+    obj1.showName();
+    obj1.showAge();
+    var obj2 = new Data("wangmazi",28);
+    obj2.showName();
+    obj2.showAge();
+</script>

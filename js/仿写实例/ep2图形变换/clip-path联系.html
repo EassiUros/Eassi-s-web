@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            margin: 100px auto;
+            width: 300px;
+            height: 400px;
+            background: linear-gradient( 360deg, blue, green 40%, red ); 
+            /* clip-path: circle(50% at 50% 50%); */
+            /* clip-path:ellipse(45% 45% at 50% 50%); */
+
+            /* CSS Code复制内容到剪贴板
+            .clipClass {   
+            -webkit-clip-path: inset(25% 0 25% 0 round 0 25% 0 25%);   
+            }  
+            上面的各个值分别对应为：
+
+            CSS Code复制内容到剪贴板
+            inset(<top> <rightright> <bottombottom> <left> round <top-radius> <rightright-radius> <bottombottom-radius> <left-radius>)  
+            其简写形式：
+
+            CSS Code复制内容到剪贴板
+            .clipClass {   
+            -webkit-clip-path: inset(25% 0 round 0 25%);   
+            }  
+            快速参考
+
+            CSS Code复制内容到剪贴板
+            Circle: circle(radius at x-axis y-axis)   
+            Ellipse: ellipse(x-rad y-rad at x-axis y-axis)   
+            Polygon: polygon(x-axis y-axis, x-axis y-axis, … )   
+            Inset: inset(top rightright bottombottom left round top-radius rightright-radius bottombottom-radius left-radius)   
+            */
+            /* clip-path: inset(25% 0 25% 0 round 0 25% 0 25%); */
+            clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 75% 25%, 75% 75%, 25% 75%, 25% 100%, 100% 100%, 100% 0%);
+            /* clip-path: circle(50% at 0 0); */
+            /* clip-path: circle(0% at 0 0);
+            animation: full 3s linear forwards; */
+        }
+        @keyframes full {
+            100% {
+                clip-path: circle(50% at 0 0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

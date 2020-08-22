@@ -1,0 +1,24 @@
+<!Doctype html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewreport" content="width=device-width initial-scale=1 minimum-scale=1 maximumsca=3 userscalable=no">
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=Edge"> -->
+        <title>indexpage</title>
+        <script>
+            function insert() {
+                let test = document.getElementById("test");
+                let para = document.createElement("p");
+                let text = document.createTextNode("要添加的文本");
+                para.appendChild(text);
+                test.appendChild(para);
+            }
+        </script>
+    </head>
+    <body>
+        <div id="test" style="border:1px solid"></div>
+        <input type="button" value="insert" onclick="insert()">
+    
+    </body>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+</html>

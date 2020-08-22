@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        canvas {
+            border: 1px solid pink;
+        }
+    </style>
+</head>
+<body>
+    <canvas width="900px" height="600px"></canvas>
+</body>
+</html>
+<script>
+    // 非零填充
+    // 1.判断一块区域是否填充
+    // 2.从这个区域拉一条直线
+    // 3.看和这条直线相交的轨迹
+    // 4.如果顺时针轨迹+1
+    // 5.如果逆时针轨迹-1
+    // 6.所有的轨迹的值相加
+    // 7.如果非0则填充
+    // 8.如果是0则不填充
+    var myCanvas = document.querySelector("canvas");
+    var ctx = myCanvas.getContext("2d");
+    ctx.beginPath();
+    // 同一条轨迹，不创建新轨迹才适用该原则
+    ctx.moveTo(100,100);
+    ctx.lineTo(300,100);
+    ctx.lineTo(300,300);
+    ctx.lineTo(100,300);
+
+    // ctx.moveTo(150,150);
+    // ctx.lineTo(250,150);
+    // ctx.lineTo(250,250);
+    // ctx.lineTo(150,250);
+
+    ctx.moveTo(150,150);
+    ctx.lineTo(150,250);
+    ctx.lineTo(250,250);
+    ctx.lineTo(250,150);
+    
+    
+    ctx.closePath();
+    ctx.fill();
+</script>

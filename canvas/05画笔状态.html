@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+    canvas {
+        border: 1px solid pink;
+    }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <canvas width="900px" height="600px"></canvas>
+</body>
+</html>
+<script>
+    //设置样式
+    // lineWidth 线宽，默认1px
+    // linCap 线末端类型：butt(默认)、round、square
+    // lineJoin 相交线的拐点miter（默认）、round、bevel
+    // strokeStyle线的颜色
+    // fillStyle 填充颜色
+    // setLineDash() 设置虚线
+    // getLineDash() 获取虚线宽度集合
+    // lineDashOffset 设置虚线偏移量（负值向右偏移）
+    // 准备画布
+    var myCanvas = document.querySelector("canvas");
+    // 联系上下文  准备工具箱
+    var ctx = myCanvas.getContext("2d");
+    // 绘制新路径
+    ctx.beginPath();
+    ctx.moveTo(100,100);
+    // ctx.lineTo(150,50);
+    ctx.lineTo(200,100);
+    // ctx.lineCap = "dutt";
+    ctx.strokeStyle = "blue";
+    // ctx.lineJoin = "miter";
+    ctx.setLineDash([5]);
+    ctx.lineWidth = 5;
+    // 描边
+    ctx.stroke();
+
+    // 绘制新路径
+    ctx.beginPath();
+    ctx.moveTo(100,200);
+    // ctx.lineTo(150,150);
+    ctx.lineTo(200,200);
+    ctx.strokeStyle = "red";
+    // ctx.lineCap = "round";
+    // ctx.lineJoin = "bevel";
+    ctx.setLineDash([5,10]);
+    ctx.lineWidth = 5;
+    // 描边
+    ctx.stroke();
+
+    // 绘制新路径
+    ctx.beginPath();
+    ctx.moveTo(100,300);
+    // ctx.lineTo(150,250);
+    ctx.lineTo(200,300);
+    ctx.strokeStyle = "green";
+    // ctx.lineCap = "square";
+    // ctx.lineJoin = "round";
+    // setLineDash([实，虚，实，虚，实，虚]);
+    // setLineDash([5, 10, 15, 5, 10, 15]);
+    ctx.setLineDash([5,10,15]);
+    console.log(ctx.getLineDash());
+    ctx.lineDashOffset = -5;
+    ctx.lineWidth = 5;
+    // 描边
+    ctx.stroke();
+</script>

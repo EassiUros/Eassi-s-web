@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    // 工厂模式
+    //在外部定义方法函数使类的封装性遭到严重破坏，使类看起来不像一个真正的类
+    // function showHome() {
+    //     alert(this.home);
+    // }
+    // function CreateApple(color,home,price) {
+    //     var obj = {};
+    //     obj.color = color;
+    //     obj.home = home;
+    //     obj.price = price;
+    //     obj.showHome = showHome;
+    //     return obj;
+    // }
+
+    // var apple1 = CreateApple("red","china",30);
+    // var apple2 = CreateApple("red","USA",50);
+    // apple1.showHome();
+    // apple2.showHome();
+
+    // 构造函数模式
+    // 也可以将函数定义在外部避免重复创建函数的问题，但同时也与上面一样破坏了类的封装性
+    // function Apple(color,price,home) {
+    //     this.color = color;
+    //     this.price = price;
+    //     this.home = home;
+    //     this.showHome = function(){
+    //         alert(this.home);
+    //     };
+    // }
+    // var apple1 = new Apple("red",30,"china");
+    // var apple2 = new Apple("red",50,"USA");
+    // apple1.showHome();
+    // apple2.showHome();
+
+    // 原型模式
+    // 解决了前面两种方式的重复构造函数的问题，但是所有实例对象存放的都是指向同一个函数的指针
+    function Apple() {
+        Apple.prototype.color = "red";
+        Apple.prototype.price = new Array(13,15);
+        Apple.prototype.home = "china";
+        Apple.prototype.showHome = function(){
+            alert(this.home);
+        }
+    }
+    var apple1 = new Apple();
+    var apple2 = new Apple();
+    var price = apple1.price.push(23);
+    alert(apple1.price);    // 输出13，15，23
+    alert(apple2.price);    // 输出13，15，2
+    // 改进：构造函数与原型方式的混合方法
+    // function Apple(color,home) {
+    //     this.color = color;
+    //     this.price = new Array(13,15);
+    //     this.home = home;
+    //     Apple.prototype.showHome = function() {
+    //         alert(this.home);
+    //     }
+    // }
+    // var apple1 = new Apple("red",30,"china");
+    // apple1.price.push(23);
+    // alert(apple1.price);
+    // var apple2 = new Apple("red",50,"USA");
+    // alert(apple2.price);
+    // alert(apple1.price);
+    // 改进：动态原型
+    // function Apple(color,home) {
+    //     this.color = color;
+    //     this.price = new Array(13,15);
+    //     this.home = home;
+    //     if(typeof Apple.created == "undefined") 
+    //     {
+    //         Apple.prototype.showHome = function() {
+    //             alert(this.home);
+    //         }
+    //         Apple.created = true;
+    //     }
+    // }
+    // var apple1 = new Apple("red","china");
+    // apple1.price.push(23);
+    // alert(apple1.price);
+    // var apple2 = new Apple("red","USA");
+    // alert(apple2.price);
+    // alert(apple1.price);
+    // apple1.showHome();
+    // apple2.showHome();
+
+    //  function Apple() {
+    //     this.color = "red";
+    //     this.price = new Array(13,15);
+    //     this.home = "china";
+    //     if(typeof this.showHome != "function")
+    //     {
+    //         alert("hahahah");
+    //         Apple.prototype.showHome = function(){
+    //             alert(this.home);
+    //         }
+    //     }
+        
+    // }
+    // var apple1 = new Apple();
+    // var price = apple1.price.push(23);
+    // alert(apple1.price);    // 输出13，15，23
+    // var apple2 = new Apple();
+    // alert(apple2.price);    // 输出13，15
+    // alert(apple1.price);    // 输出13，15 又修改会原来的值，两个对象指向同一个数组
+</script>
